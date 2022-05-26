@@ -14,7 +14,6 @@ const app = express();
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.json());
-app.use(routes);
 
 if (!isProduction) {
     // enable cors only in development
@@ -36,5 +35,7 @@ app.use(
       }
     })
   );
+
+app.use(routes);
 
 module.exports = app;
