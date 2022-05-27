@@ -1,4 +1,4 @@
-import { Cookies } from 'js-cookie';
+import Cookies from 'js-cookie';
 
 export const csrfFetch = async (url, options = {}) => {
     options.headers = options.headers || {};
@@ -16,3 +16,6 @@ export const csrfFetch = async (url, options = {}) => {
 
     return res;
 }
+
+//call this to get the XSRF-TOKEN from the backend in dev
+export const restoreCSRF = () => csrfFetch('/api/csrf/restore');
