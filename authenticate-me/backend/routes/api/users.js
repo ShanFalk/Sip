@@ -4,6 +4,8 @@ const asyncHandler = require('express-async-handler');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
 
+
+//User signup route
 router.post(
     '/',
     asyncHandler(async (req, res) => {
