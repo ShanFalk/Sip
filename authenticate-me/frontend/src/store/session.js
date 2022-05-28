@@ -16,20 +16,18 @@ const deleteSession = () => {
     }
 }
 
-export const loginUser = (payload) => async (dispatch) => {
+export const loginUser = (user) => async (dispatch) => {
 
     const res = await csrfFetch('/api/session', {
         method: 'POST',
-        header: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(user)
     })
     if (res.ok) {
-        const user = await res.json();
-        dispatch(setSession(user));
-        return user;
+        const data = await res.json();
+        dispatch(setSession(data.user));
     }
+
+    return res;
 
 }
 
@@ -40,10 +38,10 @@ const sessionReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case SET_SESSION:
-            newState = { ...state, ...action.user }
+            newState = { user: action.user }
             return newState;
         case DELETE_SESSION:
-            newState = { ...state, user: null }
+            newState = { user: null }
             return newState;
         default:
             return state;
