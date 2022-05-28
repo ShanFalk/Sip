@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import  { loginUser } from '../../store/session';
+import './LoginForm.css'
+import sipLogo from '../../images/teapot.png'
 
 const LoginFormPage = () => {
 
@@ -10,7 +12,6 @@ const LoginFormPage = () => {
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.sessionState.user );
-    console.log('are we here', sessionUser);
 
     if (sessionUser) return (
        <Redirect to='/' />
@@ -34,9 +35,16 @@ const LoginFormPage = () => {
     }
 
     return (
+        <>
+        <header>
+            <Link className='logo-link' to='/'>sip!<img src={sipLogo}/>
+            </Link>
+        </header>
         <div id='login-form-div'>
-            <p>These are the errors: {errors}</p>
             <form id = 'login-form' onSubmit={onSubmit}>
+                <ul>
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
                 <input
                 className='form-field'
                 type='email'
@@ -54,6 +62,7 @@ const LoginFormPage = () => {
                 <button type='submit'>Log In</button>
             </form>
         </div>
+        </>
     )
 }
 
