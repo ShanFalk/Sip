@@ -4,6 +4,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from './components/SignupFormPage';
 import { restoreUser } from './store/session';
 import { useDispatch } from 'react-redux';
+import Navigation from './components/Navigation';
 
 function App() {
 
@@ -17,6 +18,9 @@ function App() {
   return isLoaded && (
     <>
     <Switch>
+      <Route exact path='/'>
+        <Navigation />
+      </Route>
       <Route path='/login'>
         <LoginFormPage />
       </Route>
