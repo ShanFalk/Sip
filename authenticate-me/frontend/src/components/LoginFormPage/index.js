@@ -38,7 +38,7 @@ const LoginFormPage = () => {
     return (
         <>
         <header>
-            <Link className='logo-link' to='/'>sip!<img class='logo' src={sipLogo} alt='a purple teapot and teacup'/>
+            <Link className='logo-link' to='/'>sip!<img className='logo' src={sipLogo} alt='a purple teapot and teacup'/>
             </Link>
         </header>
         <main>
