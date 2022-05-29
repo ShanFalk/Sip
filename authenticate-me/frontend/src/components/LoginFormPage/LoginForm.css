@@ -32,7 +32,7 @@ main {
 }
 
 #cafe-login-pic {
-    width: 350px;
+    width: 400px;
     height: auto;
     border-radius: 50%;
     margin: 0px 0px 0px 50px;
@@ -50,6 +50,10 @@ main {
 h3 {
 color: rgb(161, 102, 216);
 margin: 10px 0px;
+}
+
+.error-text {
+    color: red;
 }
 
 .page-font {

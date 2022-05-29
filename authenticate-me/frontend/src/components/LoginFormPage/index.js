@@ -50,7 +50,7 @@ const LoginFormPage = () => {
                 </div>
                 <form id = 'login-form' onSubmit={onSubmit}>
                     <ul>
-                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                        {errors.map((error, idx) => <li className='error-text' key={idx}>{error}</li>)}
                     </ul>
                     <input
                     className='form-field'

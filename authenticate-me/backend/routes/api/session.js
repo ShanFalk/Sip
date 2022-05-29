@@ -10,10 +10,10 @@ const validateLogin = [
     check('email')
       .exists({ checkFalsy: true })
       .notEmpty()
-      .withMessage('Please provide a valid email.'),
+      .withMessage('Please provide a valid email'),
     check('password')
       .exists({ checkFalsy: true })
-      .withMessage('Please provide a password.'),
+      .withMessage('Please provide a password'),
   ];
 
 
