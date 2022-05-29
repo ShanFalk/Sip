@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+   }
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(161, 102, 216);
+    padding: 12px 0px;
+}
+.logo-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.logo {
+    width: 40px;
+    height: auto;
+}
+
+main {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 15px 36px;
+    margin: 8em 0 8em 0;
+}
+
+#cafe-login-pic {
+    width: 400px;
+    height: auto;
+    border-radius: 50%;
+    margin: 0px 0px 0px 50px;
+}
+
+#login-form-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    margin: 0px 50px 0px 0px;
+}
+
+#login-form-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+color: rgb(161, 102, 216);
+margin: 10px 0px;
+}
+
+.error-text {
+    color: red;
+}
+
+.page-font {
+    font-size: small;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0px 5px 0px;
+    width: 100%;
+}
+
+input {
+    margin: 0px 0px 10px 0px;
+    width: 100%;
+    max-width: 75%;
+    height: 25px;
+}
+
+button {
+    margin: 0px 0px 10px 0px;
+    width: 100%;
+    max-width: 75%;
+    height: 40px;
+    color: white;
+    background-color: rgb(161, 102, 216);
+    border-radius: 3px;
+    border: none;
+}
+
+#sub-text-div {
+    display: flex;
+    justify-content: flex-end;
+    width: 75%;
+    font-size: 12px;
+    color: grey
+}
