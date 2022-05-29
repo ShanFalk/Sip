@@ -38,15 +38,15 @@ const LoginFormPage = () => {
     return (
         <>
         <header>
-            <Link className='logo-link' to='/'>sip!<img class='logo' src={sipLogo}/>
+            <Link className='logo-link' to='/'>sip!<img class='logo' src={sipLogo} alt='a purple teapot and teacup'/>
             </Link>
         </header>
         <main>
-            <img id='cafe-login-pic' src={cafePic}/>
+            <img id='cafe-login-pic' src={cafePic} alt='a table and two chairs outside'/>
             <div id='login-form-div'>
                 <div id='login-form-header'>
                     <h3>Log in to Sip!</h3>
-                    <p>New to Sip? Sign up</p>
+                        <p className='page-font'>New to Sip? Sign up</p>
                 </div>
                 <form id = 'login-form' onSubmit={onSubmit}>
                     <ul>
@@ -66,7 +66,7 @@ const LoginFormPage = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button type='submit'>Log In</button>
+                    <button className='page-font' type='submit'>Log In</button>
                 </form>
                 <div id='sub-text-div'>
                     <p>New to Sip? Sign up</p>
