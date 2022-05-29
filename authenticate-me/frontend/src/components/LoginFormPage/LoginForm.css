@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: Helvetica, sans-serif;
    }
 
 header {
@@ -12,12 +13,30 @@ header {
 .logo-link {
     color: white;
     text-decoration: none;
-    font-family: Helvetica, sans-serif;
     font-weight: bold;
     font-size: 25px;
 }
 
-img {
+.logo {
     width: 40px;
     height: auto;
+}
+
+main {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+#cafe-login-pic {
+    width: 400px;
+    height: auto;
+    border-radius: 50%;
+}
+
+#login-form-div {
+    display: flex;
+    justify-content: center;
+    border: 2px solid red;
 }

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import  { loginUser } from '../../store/session';
 import './LoginForm.css'
 import sipLogo from '../../images/teapot.png'
+import cafePic from '../../images/coffee-shop-clipart-8.jpg'
 
 const LoginFormPage = () => {
 
@@ -37,31 +38,41 @@ const LoginFormPage = () => {
     return (
         <>
         <header>
-            <Link className='logo-link' to='/'>sip!<img src={sipLogo}/>
+            <Link className='logo-link' to='/'>sip!<img class='logo' src={sipLogo}/>
             </Link>
         </header>
-        <div id='login-form-div'>
-            <form id = 'login-form' onSubmit={onSubmit}>
-                <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
-                <input
-                className='form-field'
-                type='email'
-                placeholder='Email'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                className='form-field'
-                type='password'
-                placeholder='Password'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type='submit'>Log In</button>
-            </form>
-        </div>
+        <main>
+            <img id='cafe-login-pic' src={cafePic}/>
+            <div id='login-form-div'>
+                <div id='login-form-header'>
+                    <h3>Log in to Sip!</h3>
+                    <p>New to Sip? Sign up</p>
+                </div>
+                <form id = 'login-form' onSubmit={onSubmit}>
+                    <ul>
+                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    </ul>
+                    <input
+                    className='form-field'
+                    type='email'
+                    placeholder='Email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <input
+                    className='form-field'
+                    type='password'
+                    placeholder='Password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button type='submit'>Log In</button>
+                </form>
+                <div id='sub-text-div'>
+                    <p>New to Sip? Sign up</p>
+                </div>
+            </div>
+        </main>
         </>
     )
 }
