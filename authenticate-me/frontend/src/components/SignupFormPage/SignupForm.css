@@ -83,7 +83,7 @@ input {
     height: 25px;
 }
 
-button {
+.submit-button {
     margin: 0px 0px 10px 0px;
     width: 100%;
     max-width: 75%;

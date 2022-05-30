@@ -66,7 +66,7 @@ const LoginFormPage = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button className='page-font' type='submit'>Log In</button>
+                    <button className='page-font submit-button' type='submit'>Log In</button>
                 </form>
                 <div id='sub-text-div'>
                     <p>New to Sip? Sign up</p>

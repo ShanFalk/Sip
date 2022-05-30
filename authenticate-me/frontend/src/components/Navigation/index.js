@@ -6,14 +6,14 @@ const Navigation = () => {
 
     const sessionUser = useSelector(state => state.sessionState.user)
 
+
     return (
         <>
         <ul>
             <li><NavLink to='/'>Home</NavLink></li>
             {!sessionUser && <li><NavLink to='/login'>Log In</NavLink></li>}
             {!sessionUser && <li><NavLink to='/signup'>Sign Up</NavLink></li>}
-            {sessionUser && <li><button>Log Out</button></li>}
-            {sessionUser && <ProfileButton />}
+            {sessionUser && <ProfileButton user={sessionUser} />}
         </ul>
         </>
     )

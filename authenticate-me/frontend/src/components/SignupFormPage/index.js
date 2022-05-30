@@ -87,7 +87,7 @@ const SignupFormPage = () => {
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         />
-                        <button className='page-font' type='submit'>Sign Up</button>
+                        <button className='page-font submit-button' type='submit'>Sign Up</button>
                     </form>
                     <div id='sub-text-div'>
                         <p>Already on Sip? Log in</p>
