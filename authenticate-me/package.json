@@ -1,7 +1,7 @@
 {
-  "name": "authenticate-me",
+  "name": "wk15-solo-project-sip",
   "version": "1.0.0",
-  "description": "",
+  "description": "Fullstack solo project based on the website Yelp",
   "main": "index.js",
   "scripts": {
     "heroku-postbuild": "npm run build --prefix frontend",
@@ -12,7 +12,14 @@
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
     "start": "npm start --prefix backend"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShanFalk/wk15-solo-project-sip.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShanFalk/wk15-solo-project-sip/issues"
+  },
+  "homepage": "https://github.com/ShanFalk/wk15-solo-project-sip#readme"
 }

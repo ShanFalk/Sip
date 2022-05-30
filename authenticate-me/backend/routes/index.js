@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'production') {
 //serve the frontend's index.html file at the root route if we are in prod
     router.get('/', (req, res) => {
         res.cookie('XSRF-TOKEN', req.csrfToken());
-        return res.sendFile(
+        res.sendFile(
             path.resolve(__dirname, '../../frontend', 'build', 'index.html')
         );
     });
@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
 //serve the frontend's index.html file at any routes that DO NOT begin with api
     router.get(/^(?!\/?api).*/, (req, res) => {
         res.cookie('XSRF-TOKEN', req.csrfToken());
-        return res.sendFile(
+        res.sendFile(
             path.resolve(__dirname, '../../frontend', 'build', 'index.html')
         );
     });
