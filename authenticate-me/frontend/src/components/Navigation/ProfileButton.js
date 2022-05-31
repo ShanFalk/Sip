@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../../store/session";
+import './Navigation.css';
 
 
 const ProfileButton = ({user}) => {
@@ -34,7 +35,7 @@ const ProfileButton = ({user}) => {
     return (
         <div className="profile-icon-div">
                <button id='user-button' onClick={openMenu}>
-                   <i className="fa-solid fa-circle-user">
+                   <i className="fa-solid fa-circle-user fa-3x">
                     </i>
                 </button>
                 {showMenu && (
@@ -42,7 +43,7 @@ const ProfileButton = ({user}) => {
                         <li>{user.username}</li>
                         <li>{user.email}</li>
                         <li>
-                            <button id='log-out-button' onClick={logOut}>Log Out</button>
+                            <button className='nav-button nav-logout' onClick={logOut}>Log Out</button>
                         </li>
                     </ul>
                 )}

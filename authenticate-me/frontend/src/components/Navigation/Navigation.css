@@ -35,3 +35,23 @@
     color: white;
     margin-left: 12px;
 }
+
+/* Profile Button specific css */
+
+#user-button {
+    border-radius: 50%;;
+}
+
+.profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    list-style: none;
+}
+
+.nav-logout {
+    border: 2px solid rgb(161, 102, 216);
+    background-color: rgb(161, 102, 216);
+    color: white;
+}
