@@ -9,12 +9,18 @@ const Navigation = () => {
 
     return (
         <>
-        <ul>
-            <li><NavLink to='/'>Home</NavLink></li>
-            {!sessionUser && <li><NavLink to='/login'>Log In</NavLink></li>}
-            {!sessionUser && <li><NavLink to='/signup'>Sign Up</NavLink></li>}
-            {sessionUser && <ProfileButton user={sessionUser} />}
-        </ul>
+        <div id='background-image-main'>
+            <header>
+                <ul>
+                    <li><NavLink to='/'>Home</NavLink></li>
+                    {!sessionUser && <li><NavLink to='/login'>Log In</NavLink></li>}
+                    {!sessionUser && <li><NavLink to='/signup'>Sign Up</NavLink></li>}
+                    {sessionUser && <ProfileButton user={sessionUser} />}
+                </ul>
+            </header>
+        </div>
+
+
         </>
     )
 };

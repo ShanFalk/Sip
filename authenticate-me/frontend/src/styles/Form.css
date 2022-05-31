@@ -4,7 +4,7 @@
     font-family: Helvetica, sans-serif;
    }
 
-header {
+.form-page-header {
     display: flex;
     justify-content: center;
     background-color: rgb(161, 102, 216);
@@ -31,20 +31,27 @@ main {
     margin: 8em 0 8em 0;
 }
 
-#cafe-login-pic {
+.cafe-login-pic {
     width: 400px;
     height: auto;
     border-radius: 50%;
     margin: 0px 0px 0px 50px;
 }
 
-#login-form-div {
+.login-form-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 25%;
     margin: 0px 50px 0px 0px;
+}
+
+.login-form-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h3 {
@@ -59,6 +66,11 @@ margin: 10px 0px;
 .page-font {
     font-size: small;
     font-weight: bold;
+}
+
+.other-form-link {
+    text-decoration: none;
+    color: #0073BB;
 }
 
 form {
@@ -87,7 +99,7 @@ input {
     border: none;
 }
 
-#sub-text-div {
+.sub-text-div {
     display: flex;
     justify-content: flex-end;
     width: 75%;

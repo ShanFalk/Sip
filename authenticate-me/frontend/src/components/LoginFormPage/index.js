@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import  { loginUser } from '../../store/session';
-import './LoginForm.css'
+import '../../styles/Form.css'
 import sipLogo from '../../images/teapot.png'
 import cafePic from '../../images/coffee-shop-clipart-8.jpg'
 
@@ -37,18 +37,18 @@ const LoginFormPage = () => {
 
     return (
         <>
-        <header>
+        <header className='form-page-header'>
             <Link className='logo-link' to='/'>sip!<img className='logo' src={sipLogo} alt='a purple teapot and teacup'/>
             </Link>
         </header>
         <main>
-            <img id='cafe-login-pic' src={cafePic} alt='a table and two chairs outside'/>
-            <div id='login-form-div'>
-                <div id='login-form-header'>
+            <img className='cafe-login-pic' src={cafePic} alt='a table and two chairs outside'/>
+            <div className='login-form-div'>
+                <div className='login-form-header'>
                     <h3>Log in to Sip!</h3>
-                        <p className='page-font'>New to Sip? Sign up</p>
+                        <p className='page-font'>New to Sip? <Link className='other-form-link'>Sign up</Link></p>
                 </div>
-                <form id = 'login-form' onSubmit={onSubmit}>
+                <form className = 'login-form' onSubmit={onSubmit}>
                     <ul>
                         {errors.map((error, idx) => <li className='error-text' key={idx}>{error}</li>)}
                     </ul>
@@ -68,8 +68,8 @@ const LoginFormPage = () => {
                     />
                     <button className='page-font submit-button' type='submit'>Log In</button>
                 </form>
-                <div id='sub-text-div'>
-                    <p>New to Sip? Sign up</p>
+                <div className='sub-text-div'>
+                    <p>New to Sip? <Link className='other-form-link'>Sign up</Link></p>
                 </div>
             </div>
         </main>
