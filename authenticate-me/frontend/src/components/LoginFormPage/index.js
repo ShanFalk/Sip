@@ -46,7 +46,7 @@ const LoginFormPage = () => {
             <div className='login-form-div'>
                 <div className='login-form-header'>
                     <h3>Log in to Sip!</h3>
-                        <p className='page-font'>New to Sip? <Link className='other-form-link'>Sign up</Link></p>
+                        <p className='page-font'>New to Sip? <Link to='/signup' className='other-form-link'>Sign up</Link></p>
                 </div>
                 <form className = 'login-form' onSubmit={onSubmit}>
                     <ul>
@@ -69,7 +69,7 @@ const LoginFormPage = () => {
                     <button className='page-font submit-button' type='submit'>Log In</button>
                 </form>
                 <div className='sub-text-div'>
-                    <p>New to Sip? <Link className='other-form-link'>Sign up</Link></p>
+                    <p>New to Sip? <Link to='/signup' className='other-form-link'>Sign up</Link></p>
                 </div>
             </div>
         </main>

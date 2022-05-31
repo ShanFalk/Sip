@@ -90,7 +90,7 @@ const SignupFormPage = () => {
                         <button className='page-font submit-button' type='submit'>Sign Up</button>
                     </form>
                     <div className='sub-text-div'>
-                        <p>Already on Sip? <Link className='other-form-link'>Log in</Link></p>
+                        <p>Already on Sip? <Link to='/login' className='other-form-link'>Log in</Link></p>
                     </div>
                 </div>
             </main>
