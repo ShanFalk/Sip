@@ -12,8 +12,26 @@ module.exports = (sequelize, DataTypes) => {
     lat: DataTypes.DECIMAL,
     lng: DataTypes.DECIMAL
   }, {});
+
+  Business.getCurrentBusinessById = async function (id) {
+    return await Business.findByPk(id);
+  }
+  Business.signup = async function (
+    {
+      ownerId,
+      title,
+      description,
+      address,
+      city,
+      state,
+      zipCode,
+      imageUrl,
+  }) {
+
+  }
+
   Business.associate = function(models) {
-    // associations can be defined here
+    Business.belongsTo(models.User, {foreignKey: 'ownerId'})
   };
   return Business;
 };
