@@ -5,6 +5,8 @@ import SignupFormPage from './components/SignupFormPage';
 import { restoreUser } from './store/session';
 import { useDispatch } from 'react-redux';
 import Navigation from './components/Navigation';
+import LandingPage from './components/LandingPage';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -20,6 +22,7 @@ function App() {
     <Switch>
       <Route exact path='/'>
         <Navigation />
+        <LandingPage />
       </Route>
       {isLoaded && (
         <>
@@ -31,8 +34,8 @@ function App() {
         </Route>
       </>
       )}
-
     </Switch>
+    <Footer />
     </>
   );
 }

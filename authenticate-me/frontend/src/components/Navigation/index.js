@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
+import sipLogo from '../../images/teapot.png'
+import './Navigation.css'
 
 const Navigation = () => {
 
@@ -9,18 +11,17 @@ const Navigation = () => {
 
     return (
         <>
-        <div id='background-image-main'>
-            <header>
-                <ul>
-                    <li><NavLink to='/'>Home</NavLink></li>
-                    {!sessionUser && <li><NavLink to='/login'>Log In</NavLink></li>}
-                    {!sessionUser && <li><NavLink to='/signup'>Sign Up</NavLink></li>}
-                    {sessionUser && <ProfileButton user={sessionUser} />}
+            <header className='header-main-page'>
+                <ul className='nav-ul-list'>
+                    <li><NavLink to='/' className='logo-link'>sip!<img className='logo' src={sipLogo} alt='a purple teapot and teacup'/>
+                    </NavLink></li>
+                    <div className='nav-li-list'>
+                        {!sessionUser && <li><NavLink to='/login' className='nav-button nav-login'>Log In</NavLink></li>}
+                        {!sessionUser && <li><NavLink to='/signup' className='nav-button nav-signup'>Sign Up</NavLink></li>}
+                        {sessionUser && <ProfileButton user={sessionUser} />}
+                    </div>
                 </ul>
             </header>
-        </div>
-
-
         </>
     )
 };
