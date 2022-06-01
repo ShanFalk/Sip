@@ -1,11 +1,10 @@
 import Navigation from "../Navigation";
 import React, { useState } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createBusiness } from '../../store/business';
 import '../../styles/Form.css';
-import sipLogo from '../../images/teapot.png';
-import cafePic from '../../images/coffee-shop-clipart-8.jpg';
+import roadMapPic from '../../images/road-map.png';
 
 
 const BusinessFormPage = () => {
@@ -20,6 +19,11 @@ const BusinessFormPage = () => {
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.sessionState.user);
+    const ownerId = sessionUser.id;
+
+    if (!sessionUser) return (
+        <Redirect to='/' />
+    )
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -27,6 +31,7 @@ const BusinessFormPage = () => {
             setErrors([]);
 
             const business = {
+                ownerId,
                 title,
                 description,
                 address,
@@ -46,65 +51,72 @@ const BusinessFormPage = () => {
     return (
         <>
         <Navigation />
-            <main>
-                <img className='cafe-login-pic' src={cafePic} alt='a table and two chairs outside' />
-                <div className='login-form-div'>
+            <main className='biz-form-main'>
+                <img className='road-map-biz-pic' src={roadMapPic} alt='a picture of a road map' />
+                <div className='biz-form-div'>
                     <div className='login-form-header'>
                         <h2>Add a Business</h2>
                     </div>
-                    <form className='login-form' onSubmit={onSubmit}>
+                    <form className='biz-form' onSubmit={onSubmit}>
                         <ul>
                             {errors.map((error, idx) => <li className='error-text' key={idx}>{error}</li>)}
                         </ul>
+                        <label className='biz-form-labels' htmlFor='title'>Title</label>
                         <input
-                            className='form-field'
+                            className='biz-form-field'
                             type='text'
                             placeholder='Title'
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                         />
+                         <label className='biz-form-labels' htmlFor='description'>Description</label>
                         <textarea
-                            className='form-field'
+                            className='biz-form-field biz-textarea'
                             placeholder='Description'
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                         />
+                         <label className='biz-form-labels' htmlFor='address'>Address</label>
                         <input
-                            className='form-field'
+                            className='biz-form-field'
                             type='text'
                             placeholder='Address'
                             value={address}
                             onChange={(e) => setAddress(e.target.value)}
                         />
+                         <label className='biz-form-labels' htmlFor='city'>City</label>
                         <input
-                            className='form-field'
+                            className='biz-form-field'
                             type='text'
                             placeholder='City'
                             value={city}
                             onChange={(e) => setCity(e.target.value)}
                         />
+                         <label className='biz-form-labels' htmlFor='state'>State</label>
                         <input
-                            className='form-field'
+                            className='biz-form-field'
                             type='text'
                             placeholder='State'
                             value={state}
                             onChange={(e) => setState(e.target.value)}
                         />
+                         <label className='biz-form-labels' htmlFor='zipCode'>Zip Code</label>
                         <input
-                        className='form-field'
+                        className='biz-form-field'
                         type='text'
                         placeholder='Zip Code'
                         value={zipCode}
                         onChange={(e) => setZipCode(e.target.value)}
                         />
+                         <label className='biz-form-labels' htmlFor='imageUrl'>Image URL</label>
                         <input
-                        className='form-field'
+                        className='biz-form-field'
                         type='text'
                         placeholder='Image URL'
                         value={imageUrl}
                         onChange={(e) => setImageUrl(e.target.value)}
                         />
-                        <button className='page-font submit-button' type='submit'>Add Business</button>
+                        <button className='page-font add-biz-button' type='submit'>Add Business</button>
                     </form>
                 </div>
             </main>
