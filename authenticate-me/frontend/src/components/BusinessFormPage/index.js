@@ -1,6 +1,6 @@
 import Navigation from "../Navigation";
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createBusiness } from '../../store/business';
 import '../../styles/Form.css';
@@ -18,7 +18,9 @@ const BusinessFormPage = () => {
     const [imageUrl, setImageUrl] = useState('');
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
+    const history = useHistory();
     const sessionUser = useSelector(state => state.sessionState.user);
+    const createdBusiness = useSelector(state => state.businessState.business);
     const ownerId = sessionUser.id;
 
     if (!sessionUser) return (
@@ -41,11 +43,15 @@ const BusinessFormPage = () => {
                 imageUrl
             }
 
-            return dispatch(createBusiness(business))
+            const createdBusiness = dispatch(createBusiness(business))
                 .catch(async (res) => {
                     const data = await res.json();
                     if (data && data.errors) setErrors(data.errors);
                 });
+            if (createdBusiness) {
+                history.push('/');
+                return createBusiness;
+            }
     }
 
     return (
