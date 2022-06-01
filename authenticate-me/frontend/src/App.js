@@ -24,6 +24,9 @@ function App() {
       <Route exact path='/'>
         <LandingPage />
       </Route>
+      <Route path='/new-biz'>
+          <BusinessFormPage />
+      </Route>
       {isLoaded && (
         <>
         <Route path='/login'>
@@ -31,9 +34,6 @@ function App() {
         </Route>
         <Route path='/signup'>
           <SignupFormPage />
-        </Route>
-        <Route path='/new-biz'>
-          <BusinessFormPage />
         </Route>
       </>
       )}
