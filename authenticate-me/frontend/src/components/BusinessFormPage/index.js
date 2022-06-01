@@ -52,7 +52,7 @@ const BusinessFormPage = () => {
         <>
         <Navigation />
             <main className='biz-form-main'>
-                <img className='road-map-biz-pic' src={roadMapPic} alt='a picture of a road map' />
+                <img className='road-map-biz-pic' src={roadMapPic} alt='a road map' />
                 <div className='biz-form-div'>
                     <div className='login-form-header'>
                         <h2>Add a Business</h2>
