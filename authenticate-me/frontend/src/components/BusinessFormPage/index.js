@@ -48,7 +48,7 @@ const BusinessFormPage = () => {
                     const data = await res.json();
                     if (data && data.errors) setErrors(data.errors);
                 });
-            if (createdBusiness) {
+            if (!errors) {
                 history.push('/');
                 return createBusiness;
             }
