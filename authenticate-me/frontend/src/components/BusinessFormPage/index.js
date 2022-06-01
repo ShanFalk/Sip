@@ -20,16 +20,11 @@ const BusinessFormPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.sessionState.user);
-    // const createdBusiness = useSelector(state => state.businessState.business);
     const ownerId = sessionUser.id;
 
     if (!sessionUser) return (
         <Redirect to='/' />
     )
-
-    // if (createdBusiness) return (
-    //     <Redirect to='/' />
-    // )
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -47,22 +42,12 @@ const BusinessFormPage = () => {
                 imageUrl
             }
 
-            // return dispatch(createBusiness(business))
-            //     .catch(async (res) => {
-            //         const data = await res.json();
-            //         if (data && data.errors) setErrors(data.errors);
-            //     });
-
-//------HERE Does not redirect to home page after clicking 'Add Business' button------
-            const createdBusiness = dispatch(createBusiness(business))
+            dispatch(createBusiness(business))
+                .then(() => history.push('/'))
                 .catch(async (res) => {
-                    const data = await res.json();
-                    if (data && data.errors) setErrors(data.errors);
+                        const data = await res.json();
+                        if (data && data.errors) setErrors(data.errors);
                 });
-            if (!errors) {
-                history.push('/');
-                return createdBusiness;
-            }
     }
 
     return (
