@@ -31,6 +31,9 @@ const businessReducer = (state = initialState, action) => {
     Object.freeze(state);
     let newState;
     switch (action.type) {
+        case ADD_BUSINESS:
+            newState = { ...state, business: action.business }
+            return newState;
         default:
             return state;
     }
