@@ -18,6 +18,7 @@ const Navigation = () => {
                     <div className='nav-li-list'>
                         {!sessionUser && <li><NavLink to='/login' className='nav-button nav-login'>Log In</NavLink></li>}
                         {!sessionUser && <li><NavLink to='/signup' className='nav-button nav-signup'>Sign Up</NavLink></li>}
+                        {sessionUser && <li><NavLink to='/new-biz' className='add-biz-link'>Add a Business</NavLink></li>}
                         {sessionUser && <ProfileButton user={sessionUser} />}
                     </div>
                 </ul>

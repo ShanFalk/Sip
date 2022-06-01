@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import Navigation from './components/Navigation';
 import LandingPage from './components/LandingPage';
 import Footer from './components/Footer';
+import BusinessFormPage from './components/BusinessFormPage';
 
 function App() {
 
@@ -21,7 +22,6 @@ function App() {
     <>
     <Switch>
       <Route exact path='/'>
-        <Navigation />
         <LandingPage />
       </Route>
       {isLoaded && (
@@ -31,6 +31,9 @@ function App() {
         </Route>
         <Route path='/signup'>
           <SignupFormPage />
+        </Route>
+        <Route path='/new-biz'>
+          <BusinessFormPage />
         </Route>
       </>
       )}
