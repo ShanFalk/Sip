@@ -22,7 +22,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
 
   Business.getCurrentBusinessById = async function (id) {
-    return await Business.findByPk(id);
+    return await Business.findByPk(id, {
+      include: User
+    });
   }
   Business.signup = async function (
     {
