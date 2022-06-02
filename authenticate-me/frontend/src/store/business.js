@@ -12,6 +12,13 @@ const addBusiness = (business) => {
     }
 }
 
+const loadBusinesses = (businesses) => {
+    return {
+        type: LOAD_BUSINESSES,
+        businesses
+    }
+}
+
 export const createBusiness = (business) => async (dispatch) => {
 
     const res = await csrfFetch('/api/businesses', {
@@ -21,6 +28,15 @@ export const createBusiness = (business) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json();
         dispatch(addBusiness(data.business));
+    }
+}
+
+export const readBusinesses = (term) => async (dispatch) => {
+    const res = await csrfFetch(`/api/businesses/search/${term}`);
+
+    if (res.ok) {
+        const businesses = await res.json();
+        dispatch(loadBusinesses(businesses))
     }
 }
 

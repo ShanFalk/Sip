@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
+const { Op } = require('sequelize');
 
 const { requireAuth } = require('../../utils/auth');
 const { Business } = require('../../db/models');
@@ -76,8 +77,43 @@ router.post('/', requireAuth, validateBizCreate, asyncHandler(async(req, res) =>
 
 }))
 
-router.get('/test', asyncHandler(async(req, res) => {
-    const businesses = await Business.findAll();
+router.get('/search/:term', asyncHandler(async(req, res) => {
+    const businesses = await Business.findAll({
+        where: {
+            [Op.or]: [
+                {
+                    title: {
+                        [Op.iLike]: `$${req.params.term}%`
+                    }
+                },
+                {
+                    description: {
+                        [Op.iLike]: `$${req.params.term}%`
+                    }
+                },
+                {
+                    address: {
+                        [Op.iLike]: `$${req.params.term}%`
+                    }
+                },
+                {
+                    city: {
+                        [Op.iLike]: `$${req.params.term}%`
+                    }
+                },
+                {
+                    state: {
+                        [Op.iLike]: `$${req.params.term}%`
+                    }
+                },
+                {
+                    zipCode: {
+                        [Op.iLike]: `$${req.params.term}%`
+                    }
+                },
+            ]
+        }
+    });
 
     return (res.json({
         businesses
