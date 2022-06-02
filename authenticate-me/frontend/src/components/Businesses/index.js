@@ -1,26 +1,33 @@
 import Navigation from '../Navigation';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import './Businesses.css';
+import { useEffect } from 'react';
+import { readBusinesses } from '../../store/business';
 
 const Businesses = () => {
 
     const { term } = useParams();
     const businesses = useSelector(state => state.businessState.list)
-    console.log(businesses);
+    const dispatch = useDispatch();
+
+    useEffect( () => {
+
+        dispatch(readBusinesses(term))
+
+    }, [dispatch]);
 
     return (
         <>
         <Navigation />
         <div className='search-results-div'>
-        <h2>Browsing {term} businesses</h2>
+        <h2 className='biz-results-h2'>Browsing {term} businesses</h2>
         {businesses.map((business) => (
             <div key={business.id} className='search-result-div'>
-                <div className='result-img-div'>
-                    <img src={business.imageUrl}/>
-                </div>
-                <div className='result-info-div'>
-                    <ul>
-                        <li className='result-text'>
+                <div className='inner-search-div'>
+                    <img className='result-img' src={business.imageUrl}/>
+                    <ul className='biz-result-ul'>
+                        <li className='result-title'>
                             {business.title}
                         </li>
                         <li className='result-text'>
