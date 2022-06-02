@@ -8,6 +8,7 @@ import LandingPage from './components/LandingPage';
 import Footer from './components/Footer';
 import BusinessFormPage from './components/BusinessFormPage';
 import Businesses from './components/Businesses';
+import Business from './components/Business';
 
 function App() {
 
@@ -29,6 +30,9 @@ function App() {
       </Route>
       <Route path='/search/:term'>
         <Businesses />
+      </Route>
+      <Route path='/businesses/:businessId'>
+        <Business />
       </Route>
       {isLoaded && (
         <>
