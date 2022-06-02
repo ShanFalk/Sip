@@ -1,5 +1,5 @@
 import Navigation from '../Navigation';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './Businesses.css';
 import { useEffect } from 'react';
@@ -10,6 +10,7 @@ const Businesses = () => {
     const { term } = useParams();
     const businesses = useSelector(state => state.businessState.list)
     const dispatch = useDispatch();
+    const history = useHistory();
 
     useEffect( () => {
 
@@ -17,14 +18,25 @@ const Businesses = () => {
 
     }, [dispatch]);
 
+    const onClick = (e) => {
+
+        e.preventDefault();
+
+        console.log(e);
+
+        // history.push(`/businesses/${currBiz.id}`)
+
+    }
+
     return (
         <>
         <Navigation />
         <div className='search-results-div'>
         <h2 className='biz-results-h2'>Browsing {term} businesses</h2>
         {businesses.map((business) => (
-            <div key={business.id} className='search-result-div'>
+            <div  key={business.id} className='search-result-div'>
                 <div className='inner-search-div'>
+                    <Link className='biz-page-link' to={`/businesses/${business.id}`}>
                     <img className='result-img' src={business.imageUrl}/>
                     <ul className='biz-result-ul'>
                         <li className='result-title'>
@@ -43,6 +55,7 @@ const Businesses = () => {
                             {business.zipCode}
                         </li>
                     </ul>
+                    </Link>
                 </div>
             </div>
         ))}

@@ -45,6 +45,12 @@
     margin-left: 30px;
 }
 
+.biz-page-link {
+    text-decoration: none;
+    display: flex;
+    color: black;
+}
+
 .result-title {
     font-size: 20px;
     font-weight: bold;
