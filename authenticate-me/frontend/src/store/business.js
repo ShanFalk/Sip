@@ -6,10 +6,10 @@ const LOAD_BUSINESSES = 'business/LOAD_BUSINESSES';
 const UPDATE_BUSINESS = 'business/UPDATE_BUSINESS';
 const LOAD_BUSINESS = 'business/LOAD_BUSINESS';
 
-const addBusiness = (business) => {
+const addBusiness = (payload) => {
     return {
         type: ADD_BUSINESS,
-        business
+        payload
     }
 }
 
@@ -49,8 +49,8 @@ export const readBusinesses = (term) => async (dispatch) => {
 }
 
 export const readBusiness = (businessId) => async (dispatch) => {
-    console.log('Are we in the thunk middleware?')
     const res = await csrfFetch(`/api/businesses/${businessId}`);
+    console.log('Are we in the thunk middleware?')
     if (res.ok) {
         const business = await res.json();
         dispatch(loadBusiness(business));
@@ -58,23 +58,23 @@ export const readBusiness = (businessId) => async (dispatch) => {
 }
 
 
-const initialState = { businesses: {}, list: [] }
+const initialState = { businesses: {} }
 
 const businessReducer = (state = initialState, action) => {
     Object.freeze(state);
     let newState;
     switch (action.type) {
         case ADD_BUSINESS:
-            newState = { ...state, businesses: [...state.businesses, action.business] }
+            newState = { ...state, businesses: {...action.payload.business} }
             return newState;
         case LOAD_BUSINESSES:
-            newState = {...state, businesses: {...state.businesses}, list: [...action.payload.businesses]};
+            newState = {...state, businesses: {...state.businesses}};
             action.payload.businesses?.forEach(business => {
                 newState.businesses[business.id] = business;
             })
             return newState;
         case LOAD_BUSINESS:
-            newState = {...state, businesses: [...state.businesses, action.payload]};
+            newState = {...state, businesses: {...action.payload.business}};
             return newState;
         default:
             return state;

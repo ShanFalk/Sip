@@ -8,7 +8,8 @@ import { readBusinesses } from '../../store/business';
 const Businesses = () => {
 
     const { term } = useParams();
-    const businesses = useSelector(state => state.businessState.list)
+    const businessObj = useSelector(state => state.businessState.businesses)
+    const businesses = Object.values(businessObj);
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -23,8 +24,6 @@ const Businesses = () => {
         e.preventDefault();
 
         console.log(e);
-
-        // history.push(`/businesses/${currBiz.id}`)
 
     }
 
