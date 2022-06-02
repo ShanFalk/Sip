@@ -12,6 +12,40 @@
     list-style: none;
 }
 
+.search-bar{
+    position: absolute;
+    width: 25%;
+    left: 20%;
+}
+
+.search-form {
+
+    border-radius: 4px;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    height: 46px;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+
+.search-button {
+    border: none;
+    background-color: rgb(161, 102, 216);
+    border-radius: 4px;
+    padding: 10px;
+    position: absolute;
+}
+
+.fa-magnifying-glass {
+    color: white;
+}
+
 .nav-button {
     text-decoration: none;
     padding: 8px 16px;
