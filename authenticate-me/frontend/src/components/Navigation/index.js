@@ -8,6 +8,11 @@ const Navigation = () => {
 
     const sessionUser = useSelector(state => state.sessionState.user)
 
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+
+    }
 
     return (
         <>
@@ -16,9 +21,9 @@ const Navigation = () => {
                     <li><NavLink to='/' className='logo-link'>sip!<img className='logo' src={sipLogo} alt='a purple teapot and teacup'/>
                     </NavLink></li>
                     <div className='search-bar'>
-                        <form className='search-form'>
+                        <form className='search-form' onSubmit={onSubmit}>
                             <label className='search-label' htmlFor='term'></label>
-                            <input className='search-input' type='search' name='term' placeholder='Queen Mary, Seattle, elegant'></input>
+                            <input className='search-input' type='search' name='term' placeholder='Queen Mary, Seattle, elegant...'></input>
                             <button className='search-button'>
                                 <i className="fa-solid fa-magnifying-glass fa-2x"></i>
                             </button>
