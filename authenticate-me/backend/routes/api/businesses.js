@@ -121,7 +121,6 @@ router.get('/search/:term', asyncHandler(async(req, res) => {
 }));
 
 router.get('/:businessId', asyncHandler(async(req, res) => {
-    console.log('Are we in the backend route?')
     const business = await Business.getCurrentBusinessById(req.params.businessId);
     return res.json({business});
 }))

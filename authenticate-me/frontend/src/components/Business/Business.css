@@ -1,0 +1,19 @@
+.biz-container {
+    box-sizing: border-box;
+    padding: 24px 40px 0px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.biz-pic {
+width: 250px;
+height: auto;
+border-radius: 5px;
+position: absolute;
+right: 20%;
+}
+
+.about {
+    width: 50%;
+}

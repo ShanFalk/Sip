@@ -19,14 +19,6 @@ const Businesses = () => {
 
     }, [dispatch]);
 
-    const onClick = (e) => {
-
-        e.preventDefault();
-
-        console.log(e);
-
-    }
-
     return (
         <>
         <Navigation />

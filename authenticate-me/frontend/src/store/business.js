@@ -50,7 +50,6 @@ export const readBusinesses = (term) => async (dispatch) => {
 
 export const readBusiness = (businessId) => async (dispatch) => {
     const res = await csrfFetch(`/api/businesses/${businessId}`);
-    console.log('Are we in the thunk middleware?')
     if (res.ok) {
         const business = await res.json();
         dispatch(loadBusiness(business));
@@ -65,7 +64,7 @@ const businessReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case ADD_BUSINESS:
-            newState = { ...state, businesses: {...action.payload.business} }
+            newState = { ...state, businesses: {...action.payload} }
             return newState;
         case LOAD_BUSINESSES:
             newState = {...state, businesses: {...state.businesses}};
