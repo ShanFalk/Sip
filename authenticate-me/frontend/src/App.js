@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import LandingPage from './components/LandingPage';
 import Footer from './components/Footer';
 import BusinessFormPage from './components/BusinessFormPage';
+import Businesses from './components/Businesses';
 
 function App() {
 
@@ -25,6 +26,9 @@ function App() {
       </Route>
       <Route path='/new-biz'>
           <BusinessFormPage />
+      </Route>
+      <Route path='/search/:term'>
+        <Businesses />
       </Route>
       {isLoaded && (
         <>

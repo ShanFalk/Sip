@@ -41,14 +41,21 @@ export const readBusinesses = (term) => async (dispatch) => {
 }
 
 
-const initialState = { business: null }
+const initialState = { businesses: {} }
 
 const businessReducer = (state = initialState, action) => {
     Object.freeze(state);
     let newState;
     switch (action.type) {
         case ADD_BUSINESS:
-            newState = { ...state, business: action.business }
+            newState = { ...state, businesses: [...state.businesses, action.business] }
+            return newState;
+        case LOAD_BUSINESSES:
+            console.log(action.businesses);
+            newState = {...state, businesses: {...state.businesses}};
+            action.businesses.forEach(business => {
+                newState.businesses[business.id] = business;
+            })
             return newState;
         default:
             return state;

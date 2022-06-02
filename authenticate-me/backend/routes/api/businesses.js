@@ -83,32 +83,32 @@ router.get('/search/:term', asyncHandler(async(req, res) => {
             [Op.or]: [
                 {
                     title: {
-                        [Op.iLike]: `$${req.params.term}%`
+                        [Op.iLike]: `%${req.params.term}%`
                     }
                 },
                 {
                     description: {
-                        [Op.iLike]: `$${req.params.term}%`
+                        [Op.iLike]: `%${req.params.term}%`
                     }
                 },
                 {
                     address: {
-                        [Op.iLike]: `$${req.params.term}%`
+                        [Op.iLike]: `%${req.params.term}%`
                     }
                 },
                 {
                     city: {
-                        [Op.iLike]: `$${req.params.term}%`
+                        [Op.iLike]: `%${req.params.term}%`
                     }
                 },
                 {
                     state: {
-                        [Op.iLike]: `$${req.params.term}%`
+                        [Op.iLike]: `%${req.params.term}%`
                     }
                 },
                 {
                     zipCode: {
-                        [Op.iLike]: `$${req.params.term}%`
+                        [Op.iLike]: `%${req.params.term}%`
                     }
                 },
             ]
