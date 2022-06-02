@@ -12,10 +12,10 @@ const addBusiness = (business) => {
     }
 }
 
-const loadBusinesses = (businesses) => {
+const loadBusinesses = (payload) => {
     return {
         type: LOAD_BUSINESSES,
-        businesses
+        payload
     }
 }
 
@@ -41,7 +41,7 @@ export const readBusinesses = (term) => async (dispatch) => {
 }
 
 
-const initialState = { businesses: {} }
+const initialState = { businesses: {}, list: [] }
 
 const businessReducer = (state = initialState, action) => {
     Object.freeze(state);
@@ -51,9 +51,8 @@ const businessReducer = (state = initialState, action) => {
             newState = { ...state, businesses: [...state.businesses, action.business] }
             return newState;
         case LOAD_BUSINESSES:
-            console.log(action.businesses);
-            newState = {...state, businesses: {...state.businesses}};
-            action.businesses.forEach(business => {
+            newState = {...state, businesses: {...state.businesses}, list: [...action.payload.businesses]};
+            action.payload.businesses?.forEach(business => {
                 newState.businesses[business.id] = business;
             })
             return newState;
