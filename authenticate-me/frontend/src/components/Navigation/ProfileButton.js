@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom';
 import { logoutUser } from "../../store/session";
 import './Navigation.css';
 
@@ -8,10 +9,12 @@ const ProfileButton = ({user}) => {
 
     const [showMenu, setShowMenu] = useState(false);
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const logOut = (e) => {
         e.preventDefault();
         dispatch(logoutUser());
+        history.push('/');
     }
 
     const openMenu = () => {

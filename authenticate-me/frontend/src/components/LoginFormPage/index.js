@@ -41,11 +41,11 @@ const LoginFormPage = () => {
             <Link className='logo-link' to='/'>sip!<img className='logo' src={sipLogo} alt='a purple teapot and teacup'/>
             </Link>
         </header>
-        <main>
+        <main className='form-main'>
             <img className='cafe-login-pic' src={cafePic} alt='a table and two chairs outside'/>
             <div className='login-form-div'>
                 <div className='login-form-header'>
-                    <h3>Log in to Sip!</h3>
+                    <h2>Log in to Sip!</h2>
                         <p className='page-font'>New to Sip? <Link to='/signup' className='other-form-link'>Sign up</Link></p>
                 </div>
                 <form className = 'login-form' onSubmit={onSubmit}>

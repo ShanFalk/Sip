@@ -1,8 +1,8 @@
 
 .header-main-page {
     padding: 24px 40px 0px;
-    box-shadow: 10px 5px 10px rgb(128, 128, 128, .2);
-    background-color: rgb(128, 128, 128, .2);
+    box-shadow: 10px 5px 10px rgb(128, 128, 128, .3);
+    background-color: rgb(128, 128, 128, .3);
 }
 
 .nav-ul-list {
@@ -10,6 +10,40 @@
     flex-direction: row;
     justify-content: space-between;
     list-style: none;
+}
+
+.search-bar{
+    position: absolute;
+    width: 25%;
+    left: 20%;
+}
+
+.search-form {
+
+    border-radius: 4px;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    height: 46px;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+
+.search-button {
+    border: none;
+    background-color: rgb(161, 102, 216);
+    border-radius: 4px;
+    padding: 10px;
+    position: absolute;
+}
+
+.fa-magnifying-glass {
+    color: white;
 }
 
 .nav-button {
@@ -34,6 +68,20 @@
     background-color: rgb(161, 102, 216);
     color: white;
     margin-left: 12px;
+}
+
+.add-biz-link {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0px 16px 0px 0px;
+    padding: 10px 8px 10px 8px;
+}
+
+.add-biz-link:hover {
+    background-color: rgb(161, 102, 216, .3);
+    border-radius: 4px;
 }
 
 /* Profile Button specific css */
