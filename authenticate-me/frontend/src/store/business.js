@@ -12,6 +12,13 @@ const addBusiness = (business) => {
     }
 }
 
+const loadBusinesses = (businesses) => {
+    return {
+        type: LOAD_BUSINESSES,
+        businesses
+    }
+}
+
 export const createBusiness = (business) => async (dispatch) => {
 
     const res = await csrfFetch('/api/businesses', {
@@ -24,15 +31,31 @@ export const createBusiness = (business) => async (dispatch) => {
     }
 }
 
+export const readBusinesses = (term) => async (dispatch) => {
+    const res = await csrfFetch(`/api/businesses/search/${term}`);
 
-const initialState = { business: null }
+    if (res.ok) {
+        const businesses = await res.json();
+        dispatch(loadBusinesses(businesses))
+    }
+}
+
+
+const initialState = { businesses: {} }
 
 const businessReducer = (state = initialState, action) => {
     Object.freeze(state);
     let newState;
     switch (action.type) {
         case ADD_BUSINESS:
-            newState = { ...state, business: action.business }
+            newState = { ...state, businesses: [...state.businesses, action.business] }
+            return newState;
+        case LOAD_BUSINESSES:
+            console.log(action.businesses);
+            newState = {...state, businesses: {...state.businesses}};
+            action.businesses.forEach(business => {
+                newState.businesses[business.id] = business;
+            })
             return newState;
         default:
             return state;
