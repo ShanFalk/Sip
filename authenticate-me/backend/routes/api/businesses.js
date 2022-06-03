@@ -125,7 +125,7 @@ router.get('/:businessId', asyncHandler(async (req, res) => {
     return res.json({ business });
 }))
 
-router.put('/:businessId', asyncHandler(async (req, res) => {
+router.put('/:businessId', validateBizCreate, asyncHandler(async (req, res) => {
     const business = await Business.update(
         req.body,
         {
@@ -135,6 +135,22 @@ router.put('/:businessId', asyncHandler(async (req, res) => {
         }
     )
     return res.json({ business: business[1] });
+}))
+
+router.delete('/:businessId', asyncHandler(async (req, res) => {
+
+    const businessId = req.params.businessId;
+    const business = await Business.findByPk(businessId);
+    const deletedBusinessId = business.id;
+    if(!business) throw new Error('Cannot find business');
+
+    const deletedBusiness = await Business.destroy(
+        {
+            where: {id: business.id }
+    }
+    )
+
+    return res.json({deletedBusinessId})
 }))
 
 
