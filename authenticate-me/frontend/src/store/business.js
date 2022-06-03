@@ -27,6 +27,13 @@ const loadBusiness = (payload) => {
     }
 }
 
+const editBusiness = (payload) => {
+    return {
+        type: UPDATE_BUSINESS,
+        payload
+    }
+}
+
 export const createBusiness = (business) => async (dispatch) => {
 
     const res = await csrfFetch('/api/businesses', {
@@ -36,6 +43,18 @@ export const createBusiness = (business) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json();
         dispatch(addBusiness(data.business));
+    }
+}
+
+export const updateBusiness = (business) => async (dispatch) => {
+
+    const res = await csrfFetch(`/api/businesses/${business.id}`, {
+        method: 'PUT',
+        body: JSON.stringify(business)
+    })
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(editBusiness(data.business));
     }
 }
 
@@ -74,6 +93,10 @@ const businessReducer = (state = initialState, action) => {
             return newState;
         case LOAD_BUSINESS:
             newState = {...state, businesses: {...action.payload.business}};
+            return newState;
+        case UPDATE_BUSINESS:
+            console.log('This is the payload', action.payload)
+            newState = {...state, businesses: {...action.payload}};
             return newState;
         default:
             return state;

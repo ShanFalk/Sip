@@ -17,3 +17,17 @@ right: 20%;
 .about {
     width: 50%;
 }
+
+.toggle-edit-button {
+    position: absolute;
+    left: 32%;
+    top: 16%;
+    margin-top: 5px;
+    width: 100%;
+    max-width: 5%;
+    background-color: rgb(72, 53, 220);
+    color: white;
+    border: none;
+    padding: 1px;
+    border-radius: 4px;
+}

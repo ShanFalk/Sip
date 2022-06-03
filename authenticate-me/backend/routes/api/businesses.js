@@ -14,7 +14,7 @@ const validateBizCreate = [
     check('title')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a title')
-        .isLength({max: 256})
+        .isLength({ max: 256 })
         .withMessage('Title must not be longer than 256 characters'),
     check('description')
         .exists({ checkFalsy: true })
@@ -22,32 +22,32 @@ const validateBizCreate = [
     check('address')
         .exists({ checkFalsy: true })
         .withMessage('Please provide an address')
-        .isLength({max: 256})
+        .isLength({ max: 256 })
         .withMessage('Address must not be longer than 256 characters'),
     check('city')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a city')
-        .isLength({max: 256})
+        .isLength({ max: 256 })
         .withMessage('City must not be longer than 256 characters'),
     check('state')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a state')
-        .isLength({max: 256})
+        .isLength({ max: 256 })
         .withMessage('State must not be longer than 256 characters'),
     check('zipCode')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a zipCode')
-        .isLength({max: 50})
+        .isLength({ max: 50 })
         .withMessage('Zip code must not be longer than 50 characters'),
     check('imageUrl')
         .exists({ checkFalsy: true })
         .withMessage('Please provide an image URL')
-        .isLength({max: 256})
+        .isLength({ max: 256 })
         .withMessage('Image URL must not be longer than 256 characters'),
     handleValidationErrors
 ];
 
-router.post('/', requireAuth, validateBizCreate, asyncHandler(async(req, res) => {
+router.post('/', requireAuth, validateBizCreate, asyncHandler(async (req, res) => {
 
     const {
         ownerId,
@@ -77,7 +77,7 @@ router.post('/', requireAuth, validateBizCreate, asyncHandler(async(req, res) =>
 
 }))
 
-router.get('/search/:term', asyncHandler(async(req, res) => {
+router.get('/search/:term', asyncHandler(async (req, res) => {
     const businesses = await Business.findAll({
         where: {
             [Op.or]: [
@@ -120,9 +120,21 @@ router.get('/search/:term', asyncHandler(async(req, res) => {
     }))
 }));
 
-router.get('/:businessId', asyncHandler(async(req, res) => {
+router.get('/:businessId', asyncHandler(async (req, res) => {
     const business = await Business.getCurrentBusinessById(req.params.businessId);
-    return res.json({business});
+    return res.json({ business });
+}))
+
+router.put('/:businessId', asyncHandler(async (req, res) => {
+    const business = await Business.update(
+        req.body,
+        {
+            where: { id: req.params.businessId },
+            returning: true,
+            plain: true,
+        }
+    )
+    return res.json({ business: business[1] });
 }))
 
 

@@ -1,25 +1,40 @@
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { readBusiness } from '../../store/business';
 import Navigation from '../Navigation';
+import BusinessFormPage from '../BusinessFormPage';
 import './Business.css';
+import UpdateBusiness from '../UpdateBusiness';
 
 const Business = () => {
 
     const { businessId } = useParams();
     const dispatch = useDispatch();
     const business = useSelector(state => state.businessState.businesses);
+    const user = useSelector(state => state.sessionState.user);
+    const [openForm, setOpenForm] = useState(false);
 
     useEffect(() => {
 
         dispatch(readBusiness(businessId));
 
     }, [dispatch]);
+
     return (
         <>
         <Navigation />
-        <div className='biz-container'>
+        {openForm && (
+            <>
+            <UpdateBusiness business={business} />
+            <button className='toggle-edit-button' onClick={() => setOpenForm(!openForm)}>Cancel</button>
+            </>
+            )}
+        {!openForm && (
+            <div className='biz-container'>
+            {user.id === business.ownerId && (
+            <button className='toggle-edit-button' onClick={() => setOpenForm(!openForm)}>Edit</button>
+            )}
             <div className='biz-headline'>
                 <img className='biz-pic' src={business.imageUrl}/>
                 <h1>{business.title}</h1>
@@ -39,6 +54,7 @@ const Business = () => {
                 <h2>Reviews</h2>
             </div>
         </div>
+        )}
         </>
     )
 }
