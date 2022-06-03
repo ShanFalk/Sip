@@ -53,6 +53,10 @@
     font-size: 16px;
 }
 
+.nav-button:hover {
+    box-shadow: 0px 0px 5px white;
+}
+
 .nav-li-list {
     display: flex;
     align-items: center;
@@ -68,6 +72,14 @@
     background-color: rgb(161, 102, 216);
     color: white;
     margin-left: 12px;
+}
+
+.nav-demo {
+    margin-right: 12px;
+    background-color: rgb(72, 53, 220);
+    border: none;
+    padding: 10px 18px;
+    color: white;
 }
 
 .add-biz-link {

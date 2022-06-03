@@ -1,5 +1,5 @@
 import Navigation from '../Navigation';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './Businesses.css';
 import { useEffect } from 'react';
@@ -11,7 +11,6 @@ const Businesses = () => {
     const businessObj = useSelector(state => state.businessState.businesses)
     const businesses = Object.values(businessObj);
     const dispatch = useDispatch();
-    const history = useHistory();
 
     useEffect( () => {
 
