@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { updateBusiness } from "../../store/business";
+import { updateBusiness } from "../../../store/business";
 
 const UpdateBusiness = ({ business }) => {
 

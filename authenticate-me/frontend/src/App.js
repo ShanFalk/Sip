@@ -8,7 +8,7 @@ import LandingPage from './components/LandingPage';
 import Footer from './components/Footer';
 import BusinessFormPage from './components/BusinessFormPage';
 import Businesses from './components/Businesses';
-import Business from './components/Business';
+import BusinessDetails from './components/BusinessDetails'
 
 function App() {
 
@@ -32,7 +32,7 @@ function App() {
         <Businesses />
       </Route>
       <Route path='/businesses/:businessId'>
-        <Business />
+        <BusinessDetails />
       </Route>
       {isLoaded && (
         <>
