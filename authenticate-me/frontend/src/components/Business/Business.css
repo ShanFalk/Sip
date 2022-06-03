@@ -1,0 +1,33 @@
+.biz-container {
+    box-sizing: border-box;
+    padding: 24px 40px 0px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.biz-pic {
+width: 250px;
+height: auto;
+border-radius: 5px;
+position: absolute;
+right: 20%;
+}
+
+.about {
+    width: 50%;
+}
+
+.toggle-edit-button {
+    position: absolute;
+    left: 32%;
+    top: 16%;
+    margin-top: 5px;
+    width: 100%;
+    max-width: 5%;
+    background-color: rgb(72, 53, 220);
+    color: white;
+    border: none;
+    padding: 1px;
+    border-radius: 4px;
+}
