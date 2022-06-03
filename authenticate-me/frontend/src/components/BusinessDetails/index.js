@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { readBusiness } from "../../store/business";
 import Navigation from "../Navigation";
 import Business from "./Business";
+import ReviewDetails from "./ReviewDetails";
 import UpdateBusiness from "./UpdateBusiness";
 
 const BusinessDetails = () => {
@@ -13,7 +14,6 @@ const BusinessDetails = () => {
     const dispatch = useDispatch();
     const business = useSelector(state => state.businessState.businesses);
     const user = useSelector(state => state.sessionState.user);
-    console.log(user);
 
     const [isEditing, setIsEditing] = useState(false);
     const [editButton, setEditButton] = useState('Edit');
@@ -52,6 +52,7 @@ const BusinessDetails = () => {
             {user?.id === business.ownerId && (
                 <button className='toggle-edit-button page-font' onClick={onClick}>{editButton}</button>
             )}
+            <ReviewDetails />
         </>
     )
 }
