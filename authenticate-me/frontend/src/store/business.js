@@ -86,7 +86,7 @@ const businessReducer = (state = initialState, action) => {
             newState = { ...state, businesses: {...action.payload} }
             return newState;
         case LOAD_BUSINESSES:
-            newState = {...state, businesses: {...state.businesses}};
+            newState = {...state, businesses:{}};
             action.payload.businesses?.forEach(business => {
                 newState.businesses[business.id] = business;
             })

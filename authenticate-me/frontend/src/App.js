@@ -8,7 +8,7 @@ import LandingPage from './components/LandingPage';
 import Footer from './components/Footer';
 import BusinessFormPage from './components/BusinessFormPage';
 import Businesses from './components/Businesses';
-import Business from './components/Business';
+import Business from './components/BusinessDetails/Business';
 
 function App() {
 

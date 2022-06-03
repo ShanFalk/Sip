@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { readBusiness } from '../../store/business';
-import Navigation from '../Navigation';
-import BusinessFormPage from '../BusinessFormPage';
+import { readBusiness } from '../../../store/business';
+import Navigation from '../../Navigation';
+import BusinessFormPage from '../../BusinessFormPage';
 import './Business.css';
 import UpdateBusiness from '../UpdateBusiness';
 
