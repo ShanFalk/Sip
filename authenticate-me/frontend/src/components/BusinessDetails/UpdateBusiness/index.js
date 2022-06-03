@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { updateBusiness } from "../../../store/business";
 
-const UpdateBusiness = ({ business }) => {
+const UpdateBusiness = ({ business, onSaveEnd }) => {
 
     const [title, setTitle] = useState(business.title);
     const [description, setDescription] = useState(business.description);
@@ -33,7 +33,7 @@ const UpdateBusiness = ({ business }) => {
             }
 
             dispatch(updateBusiness(update))
-                .then(() => history.push(`/businesses/${business.id}`))
+                .then(() => onSaveEnd())
                 .catch(async (res) => {
                         const data = await res.json();
                         if (data && data.errors) setErrors(data.errors);

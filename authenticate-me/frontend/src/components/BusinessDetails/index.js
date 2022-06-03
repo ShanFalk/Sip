@@ -15,8 +15,12 @@ const BusinessDetails = () => {
     const user = useSelector(state => state.sessionState.user);
 
     const [isEditing, setIsEditing] = useState(false);
+    const [editButton, setEditButton] = useState('Edit');
 
-    const onEditEnd = () => (setIsEditing(false));
+    const onEditEnd = () => {
+        setIsEditing(false);
+        setEditButton('Edit');
+    };
 
     const onEditStart = () => (setIsEditing(true));
 
@@ -26,14 +30,27 @@ const BusinessDetails = () => {
 
     }, [dispatch]);
 
+    const onClick = () => {
+
+        setIsEditing(!isEditing);
+        if (!isEditing) setEditButton('Cancel');
+        if (isEditing) setEditButton('Edit');
+
+    }
+
 
     return (
         <>
-        <Navigation />
-        {isEditing && (
-            <UpdateBusiness props={business}/>
-        )}
-        <Business business={business}/>
+            <Navigation />
+            {isEditing && (
+                <UpdateBusiness business={business} onSaveEnd={onEditEnd} />
+            )}
+            {!isEditing && (
+                <Business business={business} />
+            )}
+            {user.id === business.ownerId && (
+                <button className='toggle-edit-button' onClick={onClick}>{editButton}</button>
+            )}
         </>
     )
 }
