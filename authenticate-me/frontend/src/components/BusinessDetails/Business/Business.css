@@ -1,6 +1,6 @@
 .biz-container {
     box-sizing: border-box;
-    padding: 24px 40px 0px;
+    padding: 24px 40px 30px;
     display: flex;
     flex-direction: column;
     margin-top: 30px;
@@ -19,10 +19,7 @@ right: 20%;
 }
 
 .toggle-edit-button {
-    position: absolute;
-    left: 32%;
-    top: 16%;
-    margin-top: 5px;
+    margin-left: 30px;
     width: 100%;
     max-width: 5%;
     background-color: rgb(72, 53, 220);

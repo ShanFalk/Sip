@@ -21,9 +21,6 @@ const Business = ({business}) => {
                     <h2>About the Business</h2>
                     <p>{business.description}</p>
                 </div>
-                <div>
-                    <h2>Reviews</h2>
-                </div>
             </div>
         </>
     )
