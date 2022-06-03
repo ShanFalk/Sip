@@ -34,6 +34,13 @@ const editBusiness = (payload) => {
     }
 }
 
+const deleteBusiness = (payload) => {
+    return {
+        type: DELETE_BUSINESS,
+        payload
+    }
+}
+
 export const createBusiness = (business) => async (dispatch) => {
 
     const res = await csrfFetch('/api/businesses', {
@@ -75,6 +82,16 @@ export const readBusiness = (businessId) => async (dispatch) => {
     }
 }
 
+export const removeBusiness = (businessId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/businesses/${businessId}`, {
+        method: 'DELETE'
+    });
+    if (res.ok) {
+        const id = await res.json();
+        dispatch(deleteBusiness(id));
+    }
+}
+
 
 const initialState = { businesses: {} }
 
@@ -95,8 +112,11 @@ const businessReducer = (state = initialState, action) => {
             newState = {...state, businesses: {...action.payload.business}};
             return newState;
         case UPDATE_BUSINESS:
-            console.log('This is the payload', action.payload)
             newState = {...state, businesses: {...action.payload}};
+            return newState;
+        case DELETE_BUSINESS:
+            newState = {...state};
+            newState.businesses = {};
             return newState;
         default:
             return state;

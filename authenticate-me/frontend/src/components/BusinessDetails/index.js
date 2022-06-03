@@ -49,7 +49,7 @@ const BusinessDetails = () => {
                 <Business business={business} />
             )}
             {user.id === business.ownerId && (
-                <button className='toggle-edit-button' onClick={onClick}>{editButton}</button>
+                <button className='toggle-edit-button page-font' onClick={onClick}>{editButton}</button>
             )}
         </>
     )

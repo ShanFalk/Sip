@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { updateBusiness } from "../../../store/business";
+import DeleteBusiness from "../DeleteBusiness";
 
 const UpdateBusiness = ({ business, onSaveEnd }) => {
 
@@ -107,8 +108,9 @@ const UpdateBusiness = ({ business, onSaveEnd }) => {
                         value={imageUrl}
                         onChange={(e) => setImageUrl(e.target.value)}
                         />
-                        <button className='page-font add-biz-button' type='submit'>Update Business</button>
+                        <button className='page-font add-biz-button' type='submit'>Update</button>
                     </form>
+                    <DeleteBusiness />
                 </div>
             </main>
         </>
