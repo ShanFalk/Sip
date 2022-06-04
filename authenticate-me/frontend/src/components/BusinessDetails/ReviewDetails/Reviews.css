@@ -20,11 +20,16 @@
     font-weight: bold;
 }
 
+.review-answer {
+    margin-top: 10px;
+}
+
 .star-rating-div {
     display: flex;
 }
 
 .star {
-    width: 30px;
+    width: 25px;
     height: auto;
+    margin-right: 2px;
 }
