@@ -37,3 +37,21 @@ right: 20%;
     border: none;
     border-radius: 4px;
 }
+
+.review-button-div {
+    margin: 10px 0px;
+    width: fit-content;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: rgb(161 102 216);
+}
+
+.review-button {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.fa-star {
+    margin-right: 8px;
+}
