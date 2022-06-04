@@ -23,14 +23,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
 
-  Review.getBizReviews = async function (id) {
-    return await Review.findAll({
-      where: {
-        businessId: id
-      }
-    })
-  }
-
 
   Review.associate = function(models) {
     Review.belongsTo(models.User, {foreignKey: 'userId'})

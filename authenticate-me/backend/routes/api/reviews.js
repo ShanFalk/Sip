@@ -1,12 +1,22 @@
 const router = require('express').Router();
 const asyncHandler = require('express-async-handler');
+const { User } = require('../../db/models');
+
 
 const{ Review } = require('../../db/models');
 
+router.use((req, res, next) => {
+    next();
+})
+
 router.get('/:businessId', asyncHandler(async (req, res) => {
-    console.log('Are we in the backend route?');
-    const reviews = await Review.getBizReviews(req.params.businessId);
-    console.log('This is the response from the database query', reviews);
+    const bizId = parseInt(req.params.businessId, 10)
+    const reviews = await Review.findAll({
+        where: {
+          businessId: bizId
+        },
+        include: User
+      })
     return res.json({ reviews });
 }));
 

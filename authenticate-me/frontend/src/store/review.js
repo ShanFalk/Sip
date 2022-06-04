@@ -12,9 +12,7 @@ const loadReviews = (payload) => {
 }
 
 export const readReviews = (businessId) => async (dispatch) => {
-    console.log('We are inside the thunk with business Id', businessId)
     const res = await csrfFetch(`/api/reviews/${businessId}`);
-    console.log('This is the response in the thunk', res);
     if (res.ok) {
         const reviews = await res.json();
         dispatch(loadReviews(reviews));
