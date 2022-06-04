@@ -20,7 +20,7 @@ const DeleteReview = ({ reviewId }) => {
 
     return (
         <>
-        <button className='delete-review-button' onClick={onClick}>Delete</button>
+        <button className='delete-button page-font' onClick={onClick}>Delete</button>
         </>
     )
 }
