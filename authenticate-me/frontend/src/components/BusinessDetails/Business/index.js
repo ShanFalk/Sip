@@ -16,7 +16,7 @@ const Business = ({business}) => {
                 </div>
                 <div className='review-button-div'>
                     {user && (
-                    <Link className='review-button page-font' to='/review'>
+                    <Link className='review-button page-font' to={`/review/${business.id}`}>
                     <i class="fa-regular fa-star fa-xl"></i>
                     Write a Review
                     </Link>

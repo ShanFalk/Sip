@@ -11,11 +11,29 @@ const loadReviews = (payload) => {
     }
 }
 
+const addReview = (payload) => {
+    return {
+        type: ADD_REVIEW,
+        payload
+    }
+}
+
 export const readReviews = (businessId) => async (dispatch) => {
     const res = await csrfFetch(`/api/reviews/${businessId}`);
     if (res.ok) {
         const reviews = await res.json();
         dispatch(loadReviews(reviews));
+    }
+}
+
+export const createReview = (review) => async (dispatch) => {
+    const res = await csrfFetch('/api/reviews', {
+        method: 'POST',
+        body: JSON.stringify(review)
+    })
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(addReview(data.review));
     }
 }
 
@@ -30,6 +48,9 @@ const reviewReducer = (state = initialState, action) => {
             action.payload.reviews?.forEach(review => {
                 newState.reviews[review.id] = review;
             })
+            return newState;
+        case ADD_REVIEW:
+            newState = {...state, reviews: {...action.payload}}
             return newState;
         default:
             return state;

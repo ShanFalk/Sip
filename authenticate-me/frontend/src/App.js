@@ -36,7 +36,7 @@ function App() {
       <Route path='/businesses/:businessId'>
         <BusinessDetails />
       </Route>
-      <Route path='/review'>
+      <Route path='/review/:businessId'>
         <CreateReview />
       </Route>
       {isLoaded && (
