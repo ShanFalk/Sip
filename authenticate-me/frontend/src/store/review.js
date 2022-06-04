@@ -18,6 +18,13 @@ const addReview = (payload) => {
     }
 }
 
+const deleteReview = (payload) => {
+    return {
+        type: DELETE_REVIEW,
+        payload
+    }
+}
+
 export const readReviews = (businessId) => async (dispatch) => {
     const res = await csrfFetch(`/api/reviews/${businessId}`);
     if (res.ok) {
@@ -37,6 +44,17 @@ export const createReview = (review) => async (dispatch) => {
     }
 }
 
+export const removeReview = (reviewId) => async (dispatch) => {
+
+    const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+        method: 'DELETE',
+    });
+    if (res.ok) {
+        const id = await res.json();
+        dispatch(deleteReview(id));
+    }
+}
+
 const initialState = { reviews: {} }
 
 const reviewReducer = (state = initialState, action) => {
@@ -44,14 +62,21 @@ const reviewReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case LOAD_REVIEWS:
-            newState = {...state, reviews: {}};
+            newState = { ...state, reviews: {} };
             action.payload.reviews?.forEach(review => {
                 newState.reviews[review.id] = review;
             })
             return newState;
         case ADD_REVIEW:
-            newState = {...state, reviews: {...action.payload}}
+            newState = { ...state, reviews: { ...action.payload } }
             return newState;
+        case DELETE_REVIEW:
+        newState = { ...state, reviews: {...state.reviews} };
+        console.log('This is the new state', newState)
+        console.log('This is the action', action)
+        const { deletedReviewId } = action.payload
+        delete newState.reviews[deletedReviewId];
+        return newState;
         default:
             return state;
     }

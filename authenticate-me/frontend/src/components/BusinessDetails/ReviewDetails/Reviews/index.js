@@ -1,6 +1,7 @@
 import squareStar from '../../../../images/square.png'
+import DeleteReview from '../DeleteReview';
 
-const Reviews = ({reviews}) => {
+const Reviews = ({reviews, user}) => {
 
     return (
         <>
@@ -21,6 +22,11 @@ const Reviews = ({reviews}) => {
                         <li className='review-answer'>
                             {review.answer}
                         </li>
+                        {user?.id === review.User.id && (
+                        <li>
+                            <DeleteReview reviewId={review.id}/>
+                        </li>
+                        )}
                     </ul>
             </div>
         ))}

@@ -54,4 +54,19 @@ router.post('/', requireAuth, validateReviewCreate, asyncHandler(async(req, res)
   return res.json({ newReview });
 }));
 
+router.delete('/:reviewId', asyncHandler(async (req, res) => {
+
+  const reviewId = req.params.reviewId;
+  const review = await Review.findByPk(reviewId);
+  const deletedReviewId = review.id;
+  if(!review) throw new Error('Cannot find review');
+
+  const deletedReview = await Review.destroy(
+    {
+      where: { id: review.id }
+    }
+  )
+  return res.json({deletedReviewId})
+}))
+
 module.exports = router;
