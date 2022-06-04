@@ -72,8 +72,6 @@ const reviewReducer = (state = initialState, action) => {
             return newState;
         case DELETE_REVIEW:
         newState = { ...state, reviews: {...state.reviews} };
-        console.log('This is the new state', newState)
-        console.log('This is the action', action)
         const { deletedReviewId } = action.payload
         delete newState.reviews[deletedReviewId];
         return newState;
