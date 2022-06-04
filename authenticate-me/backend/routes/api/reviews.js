@@ -49,7 +49,9 @@ router.post('/', requireAuth, validateReviewCreate, asyncHandler(async(req, res)
     rating,
     answer
   });
-  return await Review.findByPk(review.id);
-}))
+
+  const newReview = await Review.findByPk(review.id);
+  return res.json({ newReview });
+}));
 
 module.exports = router;

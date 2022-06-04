@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from 'react-router-dom';
 import { readBusiness } from "../../../../store/business";
 import { createReview } from "../../../../store/review";
 import Navigation from "../../../Navigation";
@@ -16,11 +16,13 @@ const CreateReview = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.sessionState.user);
     const business = useSelector(state => state.businessState.businesses)
-    const userId = user?.Id;
+    const userId = user?.id;
     const history = useHistory();
 
     const onSubmit = (e) => {
         e.preventDefault();
+
+        setErrors([]);
 
         const review = {
             userId,
@@ -56,6 +58,9 @@ const CreateReview = () => {
             <div className='review-form-container'>
                 <form className='review-form' onSubmit={onSubmit}>
                     <div className='text-div'>
+                        <ul>
+                            {errors.map((error, idx) => <li className='error-text' key={idx}>{error}</li>)}
+                        </ul>
                         <label className='rating-label'>Enter your rating</label>
                         <input className='rating' type='number' min='1' max='5' value={rating} onChange={(e) => setRating(e.target.value)}/>
                         <textarea
