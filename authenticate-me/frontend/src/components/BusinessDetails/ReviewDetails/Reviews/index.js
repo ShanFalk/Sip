@@ -11,10 +11,10 @@ const Reviews = ({reviews}) => {
                         <li className='review-user'>
                             {review.User.username}
                         </li>
-                        <div>
+                        <div className='star-rating-div'>
                         {[...new Array(review.rating)].map((star, idx) => (
                             <li key={idx} className='review-rating'>
-                                <img src={squareStar}/>
+                                <img className='star' src={squareStar}/>
                             </li>
                         ))}
                         </div>

@@ -19,3 +19,12 @@
 .review-user {
     font-weight: bold;
 }
+
+.star-rating-div {
+    display: flex;
+}
+
+.star {
+    width: 30px;
+    height: auto;
+}
