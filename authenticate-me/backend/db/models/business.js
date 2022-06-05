@@ -10,16 +10,61 @@ const geoCoder = nodeGeocoder(options);
 
 module.exports = (sequelize, DataTypes) => {
   const Business = sequelize.define('Business', {
-    ownerId: DataTypes.INTEGER,
-    title: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    address: DataTypes.STRING,
-    city: DataTypes.STRING,
-    state: DataTypes.STRING,
-    zipCode: DataTypes.STRING,
-    imageUrl: DataTypes.STRING,
-    lat: DataTypes.DECIMAL,
-    lng: DataTypes.DECIMAL
+    ownerId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3, 256]
+      }
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3, 256]
+      }
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3, 256]
+      }
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3, 256]
+      }
+    },
+    zipCode: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [5, 50]
+      }
+    },
+    imageUrl: {
+      type: DataTypes.STRING,
+      allowNull:false,
+    },
+    lat: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
+    },
+    lng: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
+    }
   }, {});
 
   Business.getCurrentBusinessById = async function (id) {

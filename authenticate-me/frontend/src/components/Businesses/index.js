@@ -32,7 +32,7 @@ const Businesses = () => {
                             <p>Try searching 'tea' or a location</p>
                         </div>
                         <div className='no-tea-div'>
-                            <img className ='no-tea' src={noTea}/>
+                            <img className ='no-tea' src={noTea} alt='empty tea cups'/>
                         </div>
                     </div>
                 )}
@@ -40,7 +40,7 @@ const Businesses = () => {
                 <div  key={business.id} className='search-result-div'>
                     <div className='inner-search-div'>
                         <Link className='biz-page-link' to={`/businesses/${business.id}`}>
-                        <img className='result-img' src={business.imageUrl}/>
+                        <img className='result-img' src={business.imageUrl} alt='business'/>
                         <ul className='biz-result-ul'>
                             <li className='result-title'>
                                 {business.title}

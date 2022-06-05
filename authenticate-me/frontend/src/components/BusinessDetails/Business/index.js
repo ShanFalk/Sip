@@ -11,7 +11,7 @@ const Business = ({business}) => {
         <>
             <div className='biz-container'>
                 <div className='biz-headline'>
-                    <img className='biz-pic' src={business.imageUrl} />
+                    <img className='biz-pic' src={business.imageUrl} alt='a tea business'/>
                     <h1>{business.title}</h1>
                 </div>
                 <div className='review-button-div'>
