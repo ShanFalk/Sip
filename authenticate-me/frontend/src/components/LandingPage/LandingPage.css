@@ -1,7 +1,7 @@
 #background-image-main {
     background-image: url(../../images/tea6.jpg);
     opacity: 1;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     bottom: 0;
     left: 0;
@@ -12,5 +12,26 @@
     aspect-ratio: 1/1;
     width: 100vw;
     height: 100vh;
+}
 
+.wrap {
+    min-height: 80vh;
+}
+
+.main {
+    overflow: auto;
+    padding-bottom: 180px;
+}
+
+.splash-title-div {
+    width: 50%;
+}
+
+.splash-title {
+    color: rgb(72, 53, 220);
+    padding-left: 40px;
+    font-size: 50px;
+    width: 100%;
+    max-width: 50%;
+    margin-top: 60px;
 }

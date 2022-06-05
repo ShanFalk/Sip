@@ -53,6 +53,7 @@ const CreateReview = () => {
     return (
         <>
         <Navigation />
+        <div className='wrap'>
         <div className='review-container'>
             <h1 className='review-h1'>{business.title}</h1>
             <div className='review-form-container'>
@@ -72,6 +73,7 @@ const CreateReview = () => {
                     <button className='review-submit'>Submit</button>
                 </form>
             </div>
+        </div>
         </div>
         </>
     )

@@ -15,7 +15,7 @@ const Reviews = ({reviews, user}) => {
                         <div className='star-rating-div'>
                         {[...new Array(review.rating)].map((star, idx) => (
                             <li key={idx} className='review-rating'>
-                                <img className='star' src={squareStar}/>
+                                <img className='star' src={squareStar} alt='a star inside a square'/>
                             </li>
                         ))}
                         </div>

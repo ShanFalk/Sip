@@ -27,8 +27,7 @@
     flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
-    padding: 15px 15px 36px;
-    margin: 8em 0 8em 0;
+    padding: 0px 15px;
 }
 
 .biz-form-main {
@@ -151,6 +150,10 @@ margin: 10px 0px;
     background-color: rgb(161, 102, 216);
     border-radius: 3px;
     border: none;
+}
+
+.add-biz-button:hover {
+    box-shadow: 0px 0px 5px rgb(161, 102, 216);
 }
 
 .sub-text-div {

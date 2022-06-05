@@ -48,7 +48,7 @@ const SignupFormPage = () => {
                 <Link className='logo-link' to='/'>sip!<img className='logo' src={sipLogo} alt='a purple teapot and teacup' />
                 </Link>
             </header>
-            <main className='form-main'>
+            <main className='form-main wrap'>
                 <img className='cafe-login-pic' src={cafePic} alt='a table and two chairs outside' />
                 <div className='login-form-div'>
                     <div className='login-form-header'>
