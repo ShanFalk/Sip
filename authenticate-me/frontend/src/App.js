@@ -12,6 +12,7 @@ import BusinessDetails from './components/BusinessDetails'
 import Business from './components/BusinessDetails/Business';
 import CreateReview from './components/BusinessDetails/ReviewDetails/CreateReview';
 import Navigation from './components/Navigation';
+import NoResourceFound from './components/NoResourceFound';
 
 function App() {
 
@@ -38,6 +39,8 @@ function App() {
         <BusinessDetails />
       </Route>
       <Route>
+        <Navigation />
+        <NoResourceFound />
       </Route>
       <Route path='/review/:businessId'>
         <CreateReview />
