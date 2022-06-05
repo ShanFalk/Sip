@@ -1,8 +1,7 @@
 .search-results-div {
     margin: 20px;
     padding: 5px;
-    height: 650px;
-    overflow-y: scroll;
+    min-height: 80vh;
 }
 
 .biz-results-h2 {
@@ -57,4 +56,30 @@
 }
 .result-text {
     color: grey;
+}
+
+.no-results-div {
+    margin-top: 30px;
+}
+
+.no-results-title {
+    display: flex;
+    justify-content: center;
+}
+
+.search-suggest {
+    display: flex;
+    justify-content: center;
+}
+
+.no-tea-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.no-tea {
+    width: 50%;
+    height: auto;
+    border-radius: 4px;
 }

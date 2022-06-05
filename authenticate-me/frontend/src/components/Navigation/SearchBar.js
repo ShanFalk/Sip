@@ -14,6 +14,8 @@ const SearchBar = () => {
     const onSubmit = (e) => {
         e.preventDefault();
 
+
+
         dispatch(readBusinesses(searchTerm))
             .then(history.push(`/search/${searchTerm}`))
             .catch(async (res) => {
@@ -29,7 +31,8 @@ const SearchBar = () => {
                     <input className='search-input'
                     onChange={(e) => setSearchTerm(e.target.value)}
                     type='search' name='term'
-                    placeholder='Queen Mary, Seattle, elegant...'>
+                    placeholder='Queen Mary, Seattle, elegant...'
+                    required>
                     </input>
                     <button className='search-button'>
                         <i className="fa-solid fa-magnifying-glass fa-2x"></i>

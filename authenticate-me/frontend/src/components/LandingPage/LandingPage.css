@@ -12,5 +12,13 @@
     aspect-ratio: 1/1;
     width: 100vw;
     height: 100vh;
+}
 
+.wrap {
+    min-height: 80vh;
+}
+
+.main {
+    overflow: auto;
+    padding-bottom: 180px;
 }

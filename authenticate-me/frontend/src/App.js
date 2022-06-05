@@ -11,6 +11,7 @@ import Businesses from './components/Businesses';
 import BusinessDetails from './components/BusinessDetails'
 import Business from './components/BusinessDetails/Business';
 import CreateReview from './components/BusinessDetails/ReviewDetails/CreateReview';
+import Navigation from './components/Navigation';
 
 function App() {
 
@@ -35,6 +36,8 @@ function App() {
       </Route>
       <Route path='/businesses/:businessId'>
         <BusinessDetails />
+      </Route>
+      <Route>
       </Route>
       <Route path='/review/:businessId'>
         <CreateReview />

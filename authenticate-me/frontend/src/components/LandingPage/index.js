@@ -4,8 +4,11 @@ import Navigation from '../Navigation';
 const LandingPage = () => {
     return (
         <>
-        <div id='background-image-main'></div>
         <Navigation />
+        <div id='background-image-main'></div>
+        <div className='wrap'>
+            <div className='main'></div>
+        </div>
         </>
     )
 }
