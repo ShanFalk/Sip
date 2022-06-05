@@ -12,3 +12,12 @@
   This project posed an interesting challenge for how to implement a search function to 
 find desired businesses. I did take some creative liberties by changing the theme from a database of any kind of business
 to only businesses that offer afternoon high tea service. I hope you have fun with it!</p>
+
+<h3>Built with</h3>
+<ul>
+  <li>PostgreSQL</li>
+  <li>Sequelize</li>
+  <li>Express</li>
+  <li>React</li>
+  <li>Redux</li>
+</ul>
