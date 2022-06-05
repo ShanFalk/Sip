@@ -1,7 +1,7 @@
 #background-image-main {
     background-image: url(../../images/tea6.jpg);
     opacity: 1;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     bottom: 0;
     left: 0;
