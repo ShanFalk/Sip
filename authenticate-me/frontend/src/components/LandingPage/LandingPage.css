@@ -22,3 +22,16 @@
     overflow: auto;
     padding-bottom: 180px;
 }
+
+.splash-title-div {
+    width: 50%;
+}
+
+.splash-title {
+    color: rgb(72, 53, 220);
+    padding-left: 40px;
+    font-size: 50px;
+    width: 100%;
+    max-width: 50%;
+    margin-top: 60px;
+}
