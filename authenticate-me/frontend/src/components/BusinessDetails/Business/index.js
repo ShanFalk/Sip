@@ -14,14 +14,14 @@ const Business = ({business}) => {
                     <img className='biz-pic' src={business.imageUrl} alt='a tea business'/>
                     <h1>{business.title}</h1>
                 </div>
-                <div className='review-button-div'>
                     {user && (
+                <div className='review-button-div'>
                     <Link className='review-button page-font' to={`/review/${business.id}`}>
                     <i className="fa-regular fa-star fa-xl"></i>
                     Write a Review
                     </Link>
-                    )}
                 </div>
+                    )}
                 <div>
                     <h2>Location</h2>
                     <p>{business.address}</p>

@@ -38,10 +38,6 @@ function App() {
       <Route path='/businesses/:businessId'>
         <BusinessDetails />
       </Route>
-      <Route>
-        <Navigation />
-        <NoResourceFound />
-      </Route>
       <Route path='/review/:businessId'>
         <CreateReview />
       </Route>
@@ -55,6 +51,10 @@ function App() {
         </Route>
       </>
       )}
+      <Route>
+        <Navigation />
+        <NoResourceFound />
+      </Route>
     </Switch>
     <Footer />
     </>
