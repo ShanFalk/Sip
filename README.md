@@ -21,3 +21,25 @@ to only businesses that offer afternoon high tea service. I hope you have fun wi
   <li>React</li>
   <li>Redux</li>
 </ul>
+
+<h2>Usage</h2>
+<p>Interested users can signup and login in, or login as a Demo user to try out the website.</p>
+<p>Once logged in, the user is directed to the home page where they now have the option to add a business to the website.</p>
+<h3>Adding a Business</h3>
+<h3>Getting Businesses</h3>
+<h3>Getting a Business</h3>
+<h3>Editing a Business</h3>
+<h3>Deleting a Business</h3>
+<h3>Adding a Review</h3>
+<h3>Deleting a Review</h3>
+
+<h2>Interesting Issues</h2>
+
+<h2>Features to Implement Next</h2>
+  
+<h2>Contact</h2>
+<h3><a href="http://linkedin.com/in/shannon-falk-16097a83">LinkedIn</a></h3>
+
+
+
+
