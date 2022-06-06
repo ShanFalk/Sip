@@ -67,8 +67,18 @@ to only businesses that offer afternoon high tea service. I hope you have fun wi
 
 
 <h2>Interesting Issues</h2>
+<p>
+  Issue: After entering a search term and rendering a list of businesses, if I wanted to search for something different, the original search results would render in addition to the new search results. 
+  
+  Solution: In my reducer I was spreading state to create a new state object, but I was also spreading state.businesses. I removed the spreading of state.businesses and only included the new data in the new state. 
+  
+Issue: I wanted to render a number of star icons equal to the rating a review gave a business. I needed to turn the rating (an integer) into mappable data. I created a new instance of an array with a default length equal to the rating and tried to map over it that way creating a star for each space in the array. However, this caused an error as the array was empty even though it technically had a length. 
+  
+Solution: I spread the new instance of the array into an array which created 'undefined' at each index. This made the array mappable and I was able to turn my integer ratings into star ratings.
+</p>
 
 <h2>Features to Implement Next</h2>
+<p>When a user creates a new business, the address that is entered has its longitudinal and latitudinal coordinates calculated on the backend. With this data, I would like to implement Google Maps and allow a user to get directions from a current location.</p>
   
 <h2>Contact</h2>
 <h3><a href="http://linkedin.com/in/shannon-falk-16097a83">LinkedIn</a></h3>
