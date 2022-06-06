@@ -25,25 +25,46 @@ to only businesses that offer afternoon high tea service. I hope you have fun wi
 <h2>Usage</h2>
 <p>Interested users can signup and login in, or login as a Demo user to try out the website.</p>
 <p>Once logged in, the user is directed to the home page where they now have the option to add a business to the website.</p>
-![signup-login](https://user-images.githubusercontent.com/99137811/172089212-617b8d6b-b167-40fd-830f-f19fc52e48bb.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/99137811/172089212-617b8d6b-b167-40fd-830f-f19fc52e48bb.gif" width=800>
+</p>
+
 
 <h3>Adding a Business</h3>
-![create-business](https://user-images.githubusercontent.com/99137811/172089254-1420dcad-e83a-4d00-8613-ab5b4884f06d.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/99137811/172089254-1420dcad-e83a-4d00-8613-ab5b4884f06d.gif" width=800>
+</p>
+
 
 <h3>Getting a Business and Business Details</h3>
-![get-business](https://user-images.githubusercontent.com/99137811/172089282-2a499dc6-76c5-4f22-a16c-9be8ac559105.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/99137811/172089282-2a499dc6-76c5-4f22-a16c-9be8ac559105.gif" width=800>
+</p>
+
 
 <h3>Editing a Business</h3>
-![update-business](https://user-images.githubusercontent.com/99137811/172089329-7908577b-160f-4a5f-9778-1d25687aa1b8.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/99137811/172089329-7908577b-160f-4a5f-9778-1d25687aa1b8.gif" width=800>
+</p>
+
 
 <h3>Adding a Review</h3>
-![create-review](https://user-images.githubusercontent.com/99137811/172089347-da11ef88-f530-4f70-a328-c9604eddd251.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/99137811/172089347-da11ef88-f530-4f70-a328-c9604eddd251.gif" width=800>
+</p>
+
 
 <h3>Deleting a Review</h3>
-![delete-review](https://user-images.githubusercontent.com/99137811/172089368-f96025ea-d658-49a9-be12-8e6f85c857d8.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/99137811/172089368-f96025ea-d658-49a9-be12-8e6f85c857d8.gif" width=800>
+</p>
+
 
 <h3>Deleting a Business</h3>
-![delete-business](https://user-images.githubusercontent.com/99137811/172089397-8997ba18-3204-4c34-b3ba-7802b70b5c73.gif)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/99137811/172089397-8997ba18-3204-4c34-b3ba-7802b70b5c73.gif" width=800>
+</p>
+
 
 <h2>Interesting Issues</h2>
 
