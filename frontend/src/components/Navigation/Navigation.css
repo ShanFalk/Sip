@@ -58,6 +58,10 @@
     position: absolute;
 }
 
+.search-button:hover {
+    box-shadow: 0px 0px 5px white;
+}
+
 .fa-magnifying-glass {
     color: white;
 }
