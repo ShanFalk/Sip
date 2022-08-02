@@ -23,7 +23,7 @@ const Navigation = () => {
             password: 'password'
         }
 
-         return dispatch(loginUser(user))
+        return dispatch(loginUser(user))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
@@ -33,18 +33,24 @@ const Navigation = () => {
     return (
         <>
             <header className='header-main-page'>
-                <SearchBar />
-                <ul className='nav-ul-list'>
-                    <li><NavLink to='/' className='logo-link'>sip!<img className='logo' src={sipLogo} alt='a purple teapot and teacup'/>
-                    </NavLink></li>
-                    <div className='nav-li-list'>
-                        {!sessionUser && <li><button onClick={onSubmit} className='nav-button nav-demo'>Demo</button></li>}
-                        {!sessionUser && <li><NavLink to='/login' className='nav-button nav-login'>Log In</NavLink></li>}
-                        {!sessionUser && <li><NavLink to='/signup' className='nav-button nav-signup'>Sign Up</NavLink></li>}
-                        {sessionUser && <li><NavLink to='/new-biz' className='add-biz-link'>Add a Business</NavLink></li>}
+                <div className='nav-list'>
+                    <div className='nav-list-left'>
+                        <div className='logo-div'>
+                            <NavLink to='/' className='logo-link'>sip!<img className='logo' src={sipLogo} alt='a purple teapot and teacup' />
+                            </NavLink>
+                        </div>
+                        <div className='search-bar-div'>
+                            <SearchBar />
+                        </div>
+                    </div>
+                    <div>
+                        {!sessionUser && <button onClick={onSubmit} className='nav-button nav-demo'>Demo</button>}
+                        {!sessionUser && <NavLink to='/login' className='nav-button nav-login'>Log In</NavLink>}
+                        {!sessionUser && <NavLink to='/signup' className='nav-button nav-signup'>Sign Up</NavLink>}
+                        {sessionUser && <NavLink to='/new-biz' className='add-biz-link'>Add a Business</NavLink>}
                         {sessionUser && <ProfileButton user={sessionUser} />}
                     </div>
-                </ul>
+                </div>
             </header>
         </>
     )
