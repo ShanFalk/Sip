@@ -1,5 +1,37 @@
-#background-image-main {
+.bg-one {
     background-image: url(../../images/tea6.jpg);
+    opacity: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    aspect-ratio: 1/1;
+    width: 100vw;
+    height: 100vh;
+}
+
+.bg-two {
+    background-image: url(../../images/tea7.jpg);
+    opacity: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    aspect-ratio: 1/1;
+    width: 100vw;
+    height: 100vh;
+}
+
+.bg-three {
+    background-image: url(../../images/tea12.jpg);
     opacity: 1;
     background-size: cover;
     background-repeat: no-repeat;
