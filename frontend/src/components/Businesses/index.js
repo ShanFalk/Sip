@@ -10,7 +10,6 @@ const Businesses = () => {
 
     const { term } = useParams();
     const businessObj = useSelector(state => state.businessState.businesses)
-    console.log(businessObj, 'this is the business Object')
     const businesses = Object.values(businessObj);
     const dispatch = useDispatch();
 

@@ -8,13 +8,13 @@ const LandingPage = () => {
     const [background, setBackground] = useState('bg-one');
 
         const bgImages = ['bg-one', 'bg-two', 'bg-three'];
-        let index = 0;
+        let index = 1;
 
     useEffect(() => {
         const imageInterval = setInterval(() => {
             setBackground(bgImages[index++]);
             if (index === bgImages.length) index = 0;
-        },4000);
+        },5000);
 
         return () => {
             clearInterval(imageInterval)
