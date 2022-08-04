@@ -6,7 +6,6 @@ import Navigation from "../Navigation";
 import Business from "./Business";
 import ReviewDetails from "./ReviewDetails";
 import UpdateBusiness from "./UpdateBusiness";
-import SipMap from "../Map";
 
 const BusinessDetails = () => {
 
@@ -16,8 +15,8 @@ const BusinessDetails = () => {
     const businesses = Object.values(businessesState);
     const business = businesses.find((business) => business.id === parseInt(businessId))
 
-    const lat = parseFloat(business.lat)
-    const lng = parseFloat(business.lng)
+    const lat = parseFloat(business?.lat)
+    const lng = parseFloat(business?.lng)
 
     const user = useSelector(state => state.sessionState.user);
 
@@ -47,12 +46,11 @@ const BusinessDetails = () => {
                 <UpdateBusiness business={business} onSaveEnd={onEditEnd} />
             )}
             {!isEditing && (
-                <Business business={business} />
+                <Business business={business} lat={lat} lng={lng}/>
             )}
-            {user?.id === business.ownerId && (
+            {user?.id === business?.ownerId && (
                 <button className='toggle-edit-button page-font' onClick={onClick}>{editButton}</button>
             )}
-            <SipMap lat={lat} lng={lng}/>
             <ReviewDetails />
         </>
     )

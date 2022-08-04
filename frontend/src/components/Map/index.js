@@ -48,7 +48,6 @@ function SipMap({ lat, lng }) {
 
     return (
         <>
-            <h2>Map</h2>
             <div id="map" className="map"></div>
         </>
 
