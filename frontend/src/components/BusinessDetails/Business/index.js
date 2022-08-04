@@ -64,12 +64,14 @@ const Business = ({ business, lat, lng }) => {
                         <section className='section'>
                             <div className='about'>
                                 <h2>About the Business</h2>
-                                <p>{business.description}</p>
+                                <p>{business?.description}</p>
                             </div>
                         </section>
                     </div>
                     <div className='contact-sticky'>
-                        <p>I'm sticky!</p>
+                        <div className='contact-inner-sticky'>
+                            <h2>Contact Me</h2>
+                        </div>
                     </div>
                 </div>
             </div>

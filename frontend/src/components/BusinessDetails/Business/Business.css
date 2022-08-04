@@ -77,6 +77,17 @@ margin: auto;
     font-weight: bold;
 }
 
+.contact-sticky {
+    margin: 10px 0px;
+    padding: 0px 16px;
+}
+
+.contact-inner-sticky {
+    top: 0;
+    position: sticky;
+    border: 1px solid red;
+}
+
 
 
 .about {
