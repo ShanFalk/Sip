@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const { Op } = require('sequelize');
+const { Review } = require('../../db/models/index');
 
 const { requireAuth } = require('../../utils/auth');
 const { Business } = require('../../db/models');
@@ -112,7 +113,8 @@ router.get('/search/:term', asyncHandler(async (req, res) => {
                     }
                 },
             ]
-        }
+        },
+        include: Review
     });
 
     return (res.json({

@@ -12,10 +12,13 @@ const BusinessDetails = () => {
 
     const { businessId } = useParams();
 
-    const dispatch = useDispatch();
-    const business = useSelector(state => state.businessState.businesses);
+    const businessesState = useSelector(state => state.businessState.businesses);
+    const businesses = Object.values(businessesState);
+    const business = businesses.find((business) => business.id === parseInt(businessId))
+
     const lat = parseFloat(business.lat)
     const lng = parseFloat(business.lng)
+
     const user = useSelector(state => state.sessionState.user);
 
     const [isEditing, setIsEditing] = useState(false);
@@ -27,12 +30,6 @@ const BusinessDetails = () => {
     };
 
     const onEditStart = () => (setIsEditing(true));
-
-    useEffect(() => {
-
-        dispatch(readBusiness(businessId));
-
-    }, [dispatch]);
 
     const onClick = () => {
 

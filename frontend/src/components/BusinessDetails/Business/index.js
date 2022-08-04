@@ -8,8 +8,8 @@ const Business = ({ business }) => {
 
     const user = useSelector(state => state.sessionState.user);
 
-    const reviewState = useSelector(state => state.reviewState.reviews);
-    let reviews = Object.values(reviewState);
+
+    let reviews = business.Reviews;
     let reviewTotal = reviews.reduce((accum, currVal) => accum + currVal.rating, 0)
     let avgReview = Math.round(reviewTotal / reviews.length)
     return (
