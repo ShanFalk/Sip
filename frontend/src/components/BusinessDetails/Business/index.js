@@ -71,6 +71,7 @@ const Business = ({ business, lat, lng }) => {
                     <div className='contact-sticky'>
                         <div className='contact-inner-sticky'>
                             <h2>Contact Me</h2>
+                            <a href='https://www.linkedin.com/in/shannon-falk-16097a83/'>LinkedIn</a>
                         </div>
                     </div>
                 </div>
