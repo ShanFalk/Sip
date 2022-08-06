@@ -70,8 +70,28 @@ const Business = ({ business, lat, lng }) => {
                     </div>
                     <div className='contact-sticky'>
                         <div className='contact-inner-sticky'>
-                            <h2>Contact Me</h2>
-                            <a href='https://www.linkedin.com/in/shannon-falk-16097a83/'>LinkedIn</a>
+                            <div className='sticky-section'>
+                                <h2 className='contact-me-h2'>Contact Me</h2>
+                                <a className='no-decor' href='https://www.linkedin.com/in/shannon-falk-16097a83/'><button className='contact-btn' type='button'><i className="fa-brands fa-linkedin contact-linkedin-icon"></i>LinkedIn</button></a>
+                            </div>
+                            <div className='sticky-section'>
+                                <div className='sticky-portfolio'>
+                                    <a className='no-decor blue' href='https://shanfalk.github.io/'>shanfalk.github.io</a>
+                                </div>
+                                <div>
+                                    <div>
+                                        Location
+                                    </div>
+                                    <div>
+                                        Pittsburgh, PA
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div>
+
+                            </div>
                         </div>
                     </div>
                 </div>

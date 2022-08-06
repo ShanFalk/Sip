@@ -26,17 +26,18 @@ opacity: .8;
 .biz-title-div {
 display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: flex-end;
 position: absolute;
 left:0;
 right: 0;
 bottom: 0;
-top: 0;
+top: 10%;
 z-index: 1;
-max-width: 1272px;
-min-width: 1144px;
-padding: 40px 64px;
-margin: auto;
+max-width: 1172px;
+min-width: 1044px;
+height: 50%;
+padding: 0px 64px;
+/* margin: auto; */
 }
 
 .avg-rating-div {
@@ -77,6 +78,10 @@ margin: auto;
     font-weight: bold;
 }
 
+.contact-me-h2 {
+    margin-top: 0;
+}
+
 .contact-sticky {
     margin: 10px 0px;
     padding: 0px 16px;
@@ -86,10 +91,41 @@ margin: auto;
     top: 0;
     position: sticky;
     border: 1px solid red;
-    z-index: 2;
 }
 
+.sticky-section {
+    border: 1px solid red;
+    padding: 16px;
+}
 
+.contact-btn {
+    padding: 8px 16px;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    background-color: rgb(161 102 216);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: medium;
+}
+
+.no-decor {
+    text-decoration: none;
+}
+
+.contact-linkedin-icon {
+margin-right: 4px;
+}
+
+.sticky-portfolio {
+ padding: 0px 0px 16px;
+ border-bottom: 1px solid #ebebeb;
+}
+
+.blue {
+    color: rgb(72, 53, 220);
+}
 
 .about {
     width: 50%;
