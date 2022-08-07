@@ -18,6 +18,13 @@ const BusinessDetails = () => {
     const lat = parseFloat(business?.lat)
     const lng = parseFloat(business?.lng)
 
+    /*
+    1. Add business data to localStorage
+    2. Retreive from localStorage in Business/index.js
+    3. Check for data in localStorage in Businesses/index.js
+    4. Clear data from localStorage in Businesses/index.js
+    */
+
     const user = useSelector(state => state.sessionState.user);
 
     const [isEditing, setIsEditing] = useState(false);
