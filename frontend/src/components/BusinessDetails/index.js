@@ -21,11 +21,11 @@ const BusinessDetails = () => {
     const user = useSelector(state => state.sessionState.user);
 
     const [isEditing, setIsEditing] = useState(false);
-    const [editButton, setEditButton] = useState('Edit');
+    const [editButton, setEditButton] = useState('Edit Business Info');
 
     const onEditEnd = () => {
         setIsEditing(false);
-        setEditButton('Edit');
+        setEditButton('Edit Business Info');
     };
 
     const onEditStart = () => (setIsEditing(true));
@@ -34,7 +34,7 @@ const BusinessDetails = () => {
 
         setIsEditing(!isEditing);
         if (!isEditing) setEditButton('Cancel');
-        if (isEditing) setEditButton('Edit');
+        if (isEditing) setEditButton('Edit Business Info');
 
     }
 
@@ -49,7 +49,7 @@ const BusinessDetails = () => {
                 <Business business={business} lat={lat} lng={lng}/>
             )}
             {user?.id === business?.ownerId && (
-                <button className='toggle-edit-button page-font' onClick={onClick}>{editButton}</button>
+                <button className='toggle-edit-button page-font' onClick={onClick}><i class="fa-solid fa-pencil"></i>{editButton}</button>
             )}
             <ReviewDetails />
         </>

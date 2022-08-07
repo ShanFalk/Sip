@@ -79,10 +79,7 @@ const Business = ({ business, lat, lng }) => {
                                     <a className='no-decor blue' href='https://shanfalk.github.io/'>shanfalk.github.io</a>
                                 </div>
                                 <div>
-                                    <div>
-                                        Location
-                                    </div>
-                                    <div>
+                                    <div className='sticky-location'>
                                         Pittsburgh, PA
                                     </div>
                                 </div>

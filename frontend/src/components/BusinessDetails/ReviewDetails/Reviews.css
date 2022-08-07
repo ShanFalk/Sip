@@ -3,11 +3,6 @@
     padding: 24px 40px 0px;
 }
 
-.reviews-container {
-    height: 200px;
-    overflow-y: scroll;
-}
-
 .reviews-div {
     margin-bottom: 40px;
 }

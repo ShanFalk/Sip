@@ -90,12 +90,13 @@ padding: 0px 64px;
 .contact-inner-sticky {
     top: 0;
     position: sticky;
-    border: 1px solid red;
 }
 
 .sticky-section {
-    border: 1px solid red;
+    border: 1px solid #ebebeb;
     padding: 16px;
+    margin-bottom: 24px;
+    border-radius: 4px;
 }
 
 .contact-btn {
@@ -127,16 +128,22 @@ margin-right: 4px;
     color: rgb(72, 53, 220);
 }
 
+.sticky-location {
+    padding: 16px 0px 0px;
+}
+
 .about {
     width: 50%;
 }
 
+.fa-pencil {
+    margin-right: 4px;
+}
+
 .toggle-edit-button {
-    margin-left: 30px;
-    width: 100%;
-    max-width: 5%;
-    background-color: rgb(72, 53, 220);
-    color: white;
+    margin: 0 40px;
+    color: rgb(72, 53, 220);
+    background-color: white;
     border: none;
     padding: 1px;
     border-radius: 4px;
