@@ -16,7 +16,6 @@ const Businesses = () => {
     useEffect( () => {
 
         dispatch(readBusinesses(term));
-        localStorage.clear();
 
     }, [dispatch]);
 

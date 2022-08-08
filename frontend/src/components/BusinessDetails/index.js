@@ -10,25 +10,15 @@ import UpdateBusiness from "./UpdateBusiness";
 const BusinessDetails = () => {
 
     const { businessId } = useParams();
-
-    const businessesState = useSelector(state => state.businessState.businesses);
-    const businesses = Object.values(businessesState);
-    const business = businesses.find((business) => business.id === parseInt(businessId))
+    const dispatch = useDispatch();
+    const business = useSelector(state => state.businessState.businesses);
+    const user = useSelector(state => state.sessionState.user);
 
     useEffect(() => {
-        if (!JSON.parse(localStorage.getItem('biz-key'))) {
-            localStorage.setItem('biz-key', JSON.stringify(business))
-        }
-    }, [business])
+        console.log('banana')
+        dispatch(readBusiness(businessId));
+    }, [dispatch])
 
-    /*
-    1. Add business data to localStorage
-    2. Retreive from localStorage in Business/index.js
-    3. Check for data in localStorage in Businesses/index.js
-    4. Clear data from localStorage in Businesses/index.js
-    */
-
-    const user = useSelector(state => state.sessionState.user);
 
     const [isEditing, setIsEditing] = useState(false);
     const [editButton, setEditButton] = useState('Edit Business Info');
@@ -48,6 +38,9 @@ const BusinessDetails = () => {
 
     }
 
+    if (!business.id) {
+        return null;
+    }
 
     return (
         <>
@@ -56,12 +49,12 @@ const BusinessDetails = () => {
                 <UpdateBusiness business={business} onSaveEnd={onEditEnd} />
             )}
             {!isEditing && (
-                <Business />
+                <Business business={business}/>
             )}
             {user?.id === business?.ownerId && (
                 <button className='toggle-edit-button page-font' onClick={onClick}><i className="fa-solid fa-pencil"></i>{editButton}</button>
             )}
-            <ReviewDetails />
+            <ReviewDetails business={business}/>
         </>
     )
 }

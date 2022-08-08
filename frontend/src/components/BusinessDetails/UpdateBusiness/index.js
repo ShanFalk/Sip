@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { updateBusiness } from "../../../store/business";
@@ -6,13 +6,15 @@ import DeleteBusiness from "../DeleteBusiness";
 
 const UpdateBusiness = ({ business, onSaveEnd }) => {
 
-    const [title, setTitle] = useState(business.title);
-    const [description, setDescription] = useState(business.description);
-    const [address, setAddress] = useState(business.address);
-    const [city, setCity] = useState(business.city);
-    const [state, setState] = useState(business.state);
-    const [zipCode, setZipCode] = useState(business.zipCode);
-    const [imageUrl, setImageUrl] = useState(business.imageUrl);
+
+
+    const [title, setTitle] = useState(business?.title);
+    const [description, setDescription] = useState(business?.description);
+    const [address, setAddress] = useState(business?.address);
+    const [city, setCity] = useState(business?.city);
+    const [state, setState] = useState(business?.state);
+    const [zipCode, setZipCode] = useState(business?.zipCode);
+    const [imageUrl, setImageUrl] = useState(business?.imageUrl);
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
     const history = useHistory();
@@ -44,7 +46,7 @@ const UpdateBusiness = ({ business, onSaveEnd }) => {
     return (
         <>
         <main className='biz-form-main'>
-                <img className='road-map-biz-pic' src={business.imageUrl} alt='business' />
+                <img className='road-map-biz-pic' src={business?.imageUrl} alt='business' />
                 <div className='biz-form-div'>
                     <div className='login-form-header'>
                         <h2>Update a Business</h2>

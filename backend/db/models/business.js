@@ -4,7 +4,6 @@ const nodeGeocoder = require('node-geocoder');
 const options = {
   provider: 'openstreetmap'
 };
-const { User } = require('./index.js');
 
 const geoCoder = nodeGeocoder(options);
 
@@ -67,11 +66,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
 
-  Business.getCurrentBusinessById = async function (id) {
-    return await Business.findByPk(id, {
-      include: User
-    });
-  }
   Business.signup = async function (
     {
       ownerId,

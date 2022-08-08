@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const { Op } = require('sequelize');
-const { Review } = require('../../db/models/index');
+const { Review, User } = require('../../db/models/index');
 
 const { requireAuth } = require('../../utils/auth');
 const { Business } = require('../../db/models');
@@ -123,20 +123,38 @@ router.get('/search/:term', asyncHandler(async (req, res) => {
 }));
 
 router.get('/:businessId', asyncHandler(async (req, res) => {
-    const business = await Business.getCurrentBusinessById(req.params.businessId);
+    const business = await Business.findByPk(req.params.businessId, {
+        include: [
+            {
+                model: Review, include: [
+                    { model: User }
+                ]
+            }
+        ]
+    });
     return res.json({ business });
 }))
 
 router.put('/:businessId', validateBizCreate, asyncHandler(async (req, res) => {
-    const business = await Business.update(
+    await Business.update(
         req.body,
         {
             where: { id: req.params.businessId },
             returning: true,
             plain: true,
         }
-    )
-    return res.json({ business: business[1] });
+    );
+    //To include other models, must re-read the data
+    const business = await Business.findByPk(req.params.businessId, {
+        include: [
+            {
+                model: Review, include: [
+                    { model: User }
+                ]
+            }
+        ]
+    });
+    return res.json({ business: updatedBusiness });
 }))
 
 router.delete('/:businessId', asyncHandler(async (req, res) => {
@@ -144,15 +162,15 @@ router.delete('/:businessId', asyncHandler(async (req, res) => {
     const businessId = req.params.businessId;
     const business = await Business.findByPk(businessId);
     const deletedBusinessId = business.id;
-    if(!business) throw new Error('Cannot find business');
+    if (!business) throw new Error('Cannot find business');
 
     const deletedBusiness = await Business.destroy(
         {
-            where: {id: business.id }
-    }
+            where: { id: business.id }
+        }
     )
 
-    return res.json({deletedBusinessId})
+    return res.json({ deletedBusinessId })
 }))
 
 
