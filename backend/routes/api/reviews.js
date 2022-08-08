@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const asyncHandler = require('express-async-handler');
 
-const { User } = require('../../db/models');
+const { User, Business } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
@@ -55,18 +55,30 @@ router.post('/', requireAuth, validateReviewCreate, asyncHandler(async(req, res)
 }));
 
 router.delete('/:reviewId', asyncHandler(async (req, res) => {
-
   const reviewId = req.params.reviewId;
+  const { businessId } = req.body;
+
   const review = await Review.findByPk(reviewId);
-  const deletedReviewId = review.id;
+
   if(!review) throw new Error('Cannot find review');
 
-  const deletedReview = await Review.destroy(
+  await Review.destroy(
     {
       where: { id: review.id }
     }
-  )
-  return res.json({deletedReviewId})
+  );
+
+  const business = await Business.findByPk(businessId, {
+    include: [
+        {
+            model: Review, include: [
+                { model: User }
+            ]
+        }
+    ]
+});
+
+  return res.json({business})
 }))
 
 module.exports = router;

@@ -92,6 +92,18 @@ export const removeBusiness = (businessId) => async (dispatch) => {
     }
 }
 
+export const removeReviewOnBusiness = (reviewId, businessId) => async dispatch => {
+
+    const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+        method: 'DELETE',
+        body: JSON.stringify({businessId})
+    })
+    if (res.ok) {
+        const business = await res.json();
+        dispatch(loadBusiness(business));
+    }
+}
+
 
 const initialState = { businesses: {} }
 

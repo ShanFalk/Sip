@@ -15,7 +15,6 @@ const BusinessDetails = () => {
     const user = useSelector(state => state.sessionState.user);
 
     useEffect(() => {
-        console.log('banana')
         dispatch(readBusiness(businessId));
     }, [dispatch])
 
