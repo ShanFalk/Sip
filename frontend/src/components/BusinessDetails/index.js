@@ -15,8 +15,11 @@ const BusinessDetails = () => {
     const businesses = Object.values(businessesState);
     const business = businesses.find((business) => business.id === parseInt(businessId))
 
-    const lat = parseFloat(business?.lat)
-    const lng = parseFloat(business?.lng)
+    useEffect(() => {
+        if (!JSON.parse(localStorage.getItem('biz-key'))) {
+            localStorage.setItem('biz-key', JSON.stringify(business))
+        }
+    }, [business])
 
     /*
     1. Add business data to localStorage
@@ -53,10 +56,10 @@ const BusinessDetails = () => {
                 <UpdateBusiness business={business} onSaveEnd={onEditEnd} />
             )}
             {!isEditing && (
-                <Business business={business} lat={lat} lng={lng}/>
+                <Business />
             )}
             {user?.id === business?.ownerId && (
-                <button className='toggle-edit-button page-font' onClick={onClick}><i class="fa-solid fa-pencil"></i>{editButton}</button>
+                <button className='toggle-edit-button page-font' onClick={onClick}><i className="fa-solid fa-pencil"></i>{editButton}</button>
             )}
             <ReviewDetails />
         </>

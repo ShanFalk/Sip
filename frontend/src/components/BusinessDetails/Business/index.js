@@ -3,11 +3,23 @@ import { Link } from 'react-router-dom';
 import SipMap from "../../Map";
 import './Business.css';
 import squareStar from '../../../images/square.png';
+import { useEffect, useState } from 'react';
 
 
-const Business = ({ business, lat, lng }) => {
+const Business = () => {
 
     const user = useSelector(state => state.sessionState.user);
+    const [business, setBusiness] = useState();
+
+    useEffect(() => {
+
+        const business = JSON.parse(localStorage.getItem('biz-key'))
+        setBusiness(business);
+
+    }, [business])
+
+    const lat = parseFloat(business?.lat)
+    const lng = parseFloat(business?.lng)
 
     let avgReview;
     let reviews;
