@@ -15,7 +15,7 @@ const Businesses = () => {
 
     useEffect( () => {
 
-        dispatch(readBusinesses(term))
+        dispatch(readBusinesses(term));
 
     }, [dispatch]);
 

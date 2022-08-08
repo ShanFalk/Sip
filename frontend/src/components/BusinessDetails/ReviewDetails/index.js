@@ -5,18 +5,10 @@ import { readReviews } from '../../../store/review';
 import Reviews from "./Reviews";
 import './Reviews.css'
 
-const ReviewDetails = () => {
+const ReviewDetails = ({business}) => {
 
-    const { businessId } = useParams();
-
-    const dispatch = useDispatch();
-    const reviewsObj = useSelector(state => state.reviewState.reviews);
     const user = useSelector(state => state.sessionState.user)
-    const reviews = Object.values(reviewsObj);
-
-    useEffect(() => {
-        dispatch(readReviews(businessId));
-    }, [dispatch]);
+    const reviews = business.Reviews;
 
     return (
         <>

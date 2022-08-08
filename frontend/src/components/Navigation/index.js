@@ -47,8 +47,10 @@ const Navigation = () => {
                         {!sessionUser && <button onClick={onSubmit} className='nav-button nav-demo'>Demo</button>}
                         {!sessionUser && <NavLink to='/login' className='nav-button nav-login'>Log In</NavLink>}
                         {!sessionUser && <NavLink to='/signup' className='nav-button nav-signup'>Sign Up</NavLink>}
-                        {sessionUser && <NavLink to='/new-biz' className='add-biz-link'>Add a Business</NavLink>}
-                        {sessionUser && <ProfileButton user={sessionUser} />}
+                        <div className="logged-in-nav-list-right">
+                            {sessionUser && <NavLink to='/new-biz' className='add-biz-link'>Add a Business</NavLink>}
+                            {sessionUser && <ProfileButton user={sessionUser} />}
+                        </div>
                     </div>
                 </div>
             </header>

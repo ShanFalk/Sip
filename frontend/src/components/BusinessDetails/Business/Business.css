@@ -1,32 +1,151 @@
 .biz-container {
     box-sizing: border-box;
-    padding: 24px 40px 30px;
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+}
+
+/* Styles for headline */
+.biz-headline {
+    margin-bottom: 10px;
+}
+
+.biz-pic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
 }
 
 .biz-pic {
-width: 250px;
-height: auto;
-border-radius: 5px;
+height: 100%;
+object-fit: cover;
+vertical-align: middle;
+width: 100%;
+opacity: .8;
+}
+
+.biz-title-div {
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
 position: absolute;
-right: 20%;
+left:0;
+right: 0;
+bottom: 0;
+top: 10%;
+max-width: 1172px;
+min-width: 1044px;
+height: 50%;
+padding: 0px 64px;
+}
+
+.avg-rating-div {
+    display: flex;
+    margin-top: 8px;
+    align-items: center;
+}
+
+.review-count {
+    margin-left: 8px;
+}
+
+.fa-circle-check {
+    background-color: rgb(2, 187, 2);
+    border-radius: 50%;
+    margin-right: 8px;
+    margin-top: 8px;
+}
+
+/* Styles for details */
+
+.biz-details-grid {
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
+.section {
+ margin: 0 40px;
+ padding-bottom: 20px;
+ border-bottom: 1px solid #ebebeb;
+}
+
+.address-div {
+    margin-top: 20px;
+}
+
+.address-bold {
+    font-weight: bold;
+}
+
+.contact-me-h2 {
+    margin-top: 0;
+}
+
+.contact-sticky {
+    margin: 10px 0px;
+    padding: 0px 16px;
+}
+
+.contact-inner-sticky {
+    top: 0;
+    position: sticky;
+}
+
+.sticky-section {
+    border: 1px solid #ebebeb;
+    padding: 16px;
+    margin-bottom: 24px;
+    border-radius: 4px;
+}
+
+.contact-btn {
+    padding: 8px 16px;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    background-color: rgb(161 102 216);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: medium;
+}
+
+.no-decor {
+    text-decoration: none;
+}
+
+.contact-linkedin-icon {
+margin-right: 4px;
+}
+
+.sticky-portfolio {
+ padding: 0px 0px 16px;
+ border-bottom: 1px solid #ebebeb;
+}
+
+.blue {
+    color: rgb(72, 53, 220);
+}
+
+.sticky-location {
+    padding: 16px 0px 0px;
 }
 
 .about {
     width: 50%;
 }
 
+.fa-pencil {
+    margin-right: 4px;
+}
+
 .toggle-edit-button {
-    margin-left: 30px;
-    width: 100%;
-    max-width: 5%;
-    background-color: rgb(72, 53, 220);
-    color: white;
+    margin: 0 40px;
+    color: rgb(72, 53, 220);
+    background-color: white;
     border: none;
     padding: 1px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .delete-button {

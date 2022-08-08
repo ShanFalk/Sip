@@ -10,35 +10,36 @@ import UpdateBusiness from "./UpdateBusiness";
 const BusinessDetails = () => {
 
     const { businessId } = useParams();
-
     const dispatch = useDispatch();
     const business = useSelector(state => state.businessState.businesses);
     const user = useSelector(state => state.sessionState.user);
 
+    useEffect(() => {
+        dispatch(readBusiness(businessId));
+    }, [dispatch])
+
+
     const [isEditing, setIsEditing] = useState(false);
-    const [editButton, setEditButton] = useState('Edit');
+    const [editButton, setEditButton] = useState('Edit Business Info');
 
     const onEditEnd = () => {
         setIsEditing(false);
-        setEditButton('Edit');
+        setEditButton('Edit Business Info');
     };
 
     const onEditStart = () => (setIsEditing(true));
-
-    useEffect(() => {
-
-        dispatch(readBusiness(businessId));
-
-    }, [dispatch]);
 
     const onClick = () => {
 
         setIsEditing(!isEditing);
         if (!isEditing) setEditButton('Cancel');
-        if (isEditing) setEditButton('Edit');
+        if (isEditing) setEditButton('Edit Business Info');
 
     }
 
+    if (!business.id) {
+        return null;
+    }
 
     return (
         <>
@@ -47,12 +48,12 @@ const BusinessDetails = () => {
                 <UpdateBusiness business={business} onSaveEnd={onEditEnd} />
             )}
             {!isEditing && (
-                <Business business={business} />
+                <Business business={business}/>
             )}
-            {user?.id === business.ownerId && (
-                <button className='toggle-edit-button page-font' onClick={onClick}>{editButton}</button>
+            {user?.id === business?.ownerId && (
+                <button className='toggle-edit-button page-font' onClick={onClick}><i className="fa-solid fa-pencil"></i>{editButton}</button>
             )}
-            <ReviewDetails />
+            <ReviewDetails business={business}/>
         </>
     )
 }
